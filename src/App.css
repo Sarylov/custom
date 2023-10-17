@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.form {
+  flex: 1;
+}
+.constructor {
+  flex: 1;
+}
+
+.cell {
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+}
+
+.cell-1,
+.cell-17 {
+  -webkit-mask-image: url(./assets/cells/1.png);
+  mask-image: url(./assets/cells/1.svg);
+}
+.cell-2,
+.cell-18 {
+  -webkit-mask-image: url(./assets/cells/2.svg);
+  mask-image: url(./assets/cells/2.svg);
+}
+.cell-3,
+.cell-19 {
+  -webkit-mask-image: url(./assets/cells/2.svg);
+  mask-image: url(./assets/cells/2.svg);
+}
+.cell-4,
+.cell-20 {
+  -webkit-mask-image: url(./assets/cells/4.svg);
+  mask-image: url(./assets/cells/4.svg);
+}
+.cell-5,
+.cell-21 {
+  -webkit-mask-image: url(./assets/cells/5.svg);
+  mask-image: url(./assets/cells/5.svg);
+}
+.cell-6,
+.cell-22 {
+  -webkit-mask-image: url(./assets/cells/6.svg);
+  mask-image: url(./assets/cells/6.svg);
+}
+.cell-7,
+.cell-23 {
+  -webkit-mask-image: url(./assets/cells/6.svg);
+  mask-image: url(./assets/cells/6.svg);
+}
+.cell-8,
+.cell-24 {
+  -webkit-mask-image: url(./assets/cells/8.svg);
+  mask-image: url(./assets/cells/8.svg);
+}
+
+.cell-10,
+.cell-26 {
+  -webkit-mask-image: url(./assets/cells/10.svg);
+  mask-image: url(./assets/cells/10.svg);
+}
+
+.cell-14,
+.cell-30 {
+  -webkit-mask-image: url(./assets/cells/14.svg);
+  mask-image: url(./assets/cells/14.svg);
+}
+
+.cell-9,
+.cell-12,
+.cell-11,
+.cell-13,
+.cell-16,
+.cell-15,
+.cell-25,
+.cell-28,
+.cell-27,
+.cell-29,
+.cell-32,
+.cell-31 {
+  -webkit-mask-image: url(./assets/cells/9_12_11_13_16_15.svg);
+  mask-image: url(./assets/cells/8.svg);
+}
+
