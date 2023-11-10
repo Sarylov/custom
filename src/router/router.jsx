@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Pay } from '../pages/pay';
+import { WhiteBoll } from '../pages/white_boll';
 
 import { Root } from './root';
 
@@ -10,11 +10,11 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Pay />,
+        element: <WhiteBoll />,
       },
       {
-        path: 'pay',
-        element: <Pay />,
+        path: 'white_boll',
+        element: <WhiteBoll />,
       },
     ],
   },
