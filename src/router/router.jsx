@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { WhiteBoll } from '../pages/white_boll';
+import { Whiteball } from '../pages/white-ball';
 
 import { Root } from './root';
 
@@ -10,11 +10,11 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <WhiteBoll />,
+        element: <Whiteball />,
       },
       {
-        path: 'white_boll',
-        element: <WhiteBoll />,
+        path: 'whiteball',
+        element: <Whiteball />,
       },
     ],
   },

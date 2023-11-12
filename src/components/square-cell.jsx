@@ -1,9 +1,15 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
 import { CropperImage } from './cropper-image';
 import { Modal } from './modal';
 
-// eslint-disable-next-line react/prop-types
-export const SquareCell = ({ id, width, className, classNameWrapper }) => {
+export const SquareCell = ({
+  id,
+  width,
+  height,
+  className,
+  classNameWrapper,
+}) => {
   const [imageSrc, setImageSrc] = useState('');
   const [croppedImage, setCroppedimage] = useState(null);
 
@@ -39,13 +45,17 @@ export const SquareCell = ({ id, width, className, classNameWrapper }) => {
         }
       >
         <div
-          className={`${className} cursor-pointer cell aspect-square bg-gray-400 flex justify-center items-center`}
-          style={{ width }}
+          className={`${className} cursor-pointer cell bg-gray-700 flex justify-center items-center`}
+          style={{ width, height }}
         >
           {croppedImage ? (
-            <img src={croppedImage} alt="" className="w-full  object-center" />
+            <img
+              src={croppedImage}
+              alt=""
+              className="h-full w-full object-cover"
+            />
           ) : (
-            <p className='text-white'>{id}</p>
+            <p className="text-white">{id}</p>
           )}
         </div>
       </Modal>

@@ -22,13 +22,11 @@
   flex: 1;
 }
 
-.grid-boll {
-  z-index: 20;
+.grid-ball {
   pointer-events: none;
 }
 
-.grid-boll-cell {
-  z-index: 10;
+.grid-ball-cell {
   pointer-events: auto;
 }
 
@@ -110,3 +108,8 @@
   mask-image: url(./assets/cells/8.svg);
 }
 
+.no-arrows::-webkit-outer-spin-button,
+.no-arrows::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
