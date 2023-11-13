@@ -7,6 +7,8 @@ export const SquareCell = ({
   id,
   width,
   height,
+  changeFile,
+  changeCropped,
   className,
   classNameWrapper,
 }) => {
@@ -15,6 +17,7 @@ export const SquareCell = ({
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
+    changeFile(id, file);
     const reader = new FileReader();
     reader.onload = () => {
       setImageSrc(reader.result);
@@ -37,7 +40,10 @@ export const SquareCell = ({
             />
             <div className="w-full h-[60vh]">
               <CropperImage
-                setCroppedimage={setCroppedimage}
+                setCroppedimage={(cropped) => {
+                  changeCropped(id, cropped);
+                  setCroppedimage(cropped);
+                }}
                 imageSrc={imageSrc}
               />
             </div>
