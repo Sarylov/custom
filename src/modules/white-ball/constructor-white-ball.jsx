@@ -1,12 +1,12 @@
-import { SquareCell } from './square-cell';
-import whiteballGrid from '../assets/white_ball/white_ball.png';
 import { useContext } from 'react';
-import { BallConstructorContext } from '../contexts/ball-constructor-context';
+import whiteballGrid from '../../assets/white_ball/white_ball.png';
+import { BallConstructorContext } from '../../contexts/ball-constructor-context';
+import { SquareCell } from '../../components/square-cell';
 
 const WIDTH = '17.6%';
 const HEIGHT = '10.4%';
 
-export const ConstuctorWhiteball = () => {
+export const ConstructorWhiteball = () => {
   const { changeFile, changeCropped } = useContext(BallConstructorContext);
   return (
     <div
