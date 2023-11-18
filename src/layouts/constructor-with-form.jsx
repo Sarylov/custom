@@ -23,7 +23,7 @@ export const ConstructorWithForm = ({ form, constructor }) => {
           <span></span>
         </div>
         <div className="flex justify-center gap-2 mt-4 md:hidden">
-          <Modal title={'Оформление'} name="Decoration" content={<>react</>}>
+          <Modal title={'Оформление'} name="Decoration" content={<>{form}</>}>
             <button className="btn btn-primary">оформить заказ</button>
           </Modal>
           <button className="btn" onClick={() => setIsReverte((prev) => !prev)}>

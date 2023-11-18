@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import grid from '../../assets/black_ball/grid.png';
 import { Modal } from '../../components/modal';
-import { PrintForm } from './components/print-form';
+import { PrintForm } from '../../components/print-form';
 
 export const ConstructorBlackBall = () => {
   const [fullName, setFullName] = useState('Иван Иванов');

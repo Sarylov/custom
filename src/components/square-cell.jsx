@@ -11,6 +11,8 @@ export const SquareCell = ({
   changeCropped,
   className,
   classNameWrapper,
+  isTransparentBackground = false,
+  cropAspect = 1 / 1,
 }) => {
   const [imageSrc, setImageSrc] = useState('');
   const [croppedImage, setCroppedimage] = useState(null);
@@ -44,6 +46,7 @@ export const SquareCell = ({
                   changeCropped(id, cropped);
                   setCroppedimage(cropped);
                 }}
+                aspect={cropAspect}
                 imageSrc={imageSrc}
               />
             </div>
@@ -51,7 +54,9 @@ export const SquareCell = ({
         }
       >
         <div
-          className={`${className} cursor-pointer cell bg-gray-700 flex justify-center items-center`}
+          className={`${className} cursor-pointer cell ${
+            isTransparentBackground ? 'bg-transparent' : 'bg-gray-700'
+          }  flex justify-center items-center`}
           style={{ width, height }}
         >
           {croppedImage ? (
