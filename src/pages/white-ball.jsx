@@ -1,11 +1,11 @@
 import { ContactForm } from '../components/contact-form';
 import { BallConstructorContext } from './../contexts/ball-constructor-context';
-import { useWhiteBall } from '../hooks/use-white-ball';
+import { useBall } from '../hooks/use-ball';
 import { ConstructorWithForm } from './../layouts/constructor-with-form';
 import { ConstructorWhiteball } from '../modules/white-ball';
 
 export const Whiteball = () => {
-  const contextValue = useWhiteBall();
+  const contextValue = useBall();
   return (
     <BallConstructorContext.Provider value={contextValue}>
       <ConstructorWithForm
