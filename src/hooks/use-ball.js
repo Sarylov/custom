@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { getFileFromBase64 } from '../helpers/files';
 
-export const useWhiteBall = () => {
+export const useBall = () => {
   const [files, setFiles] = useState({});
   const [cropped, setCropped] = useState({});
 
