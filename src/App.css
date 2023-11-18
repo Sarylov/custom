@@ -30,6 +30,10 @@
   pointer-events: auto;
 }
 
+#constructor {
+  user-select: none;
+}
+
 .cell {
   mask-size: contain;
   -webkit-mask-size: contain;
@@ -113,3 +117,4 @@
   -webkit-appearance: none;
   margin: 0;
 }
+
