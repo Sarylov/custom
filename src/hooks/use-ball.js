@@ -31,7 +31,7 @@ export const useBall = () => {
     return croppedValues;
   }
 
-  async function sendFiles(propfiles) {
+  async function sendFiles(propfiles, email) {
     const filesValues = Object.values(files);
     const croppedValues = await getCroppedFiles();
 
@@ -50,6 +50,8 @@ export const useBall = () => {
         formData.append(file.name, file.file);
       });
     }
+
+    formData.append('email', email);
 
     return fetch('http://localhost:8000/uploadFiles', {
       method: 'POST',
