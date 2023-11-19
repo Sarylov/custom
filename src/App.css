@@ -4,11 +4,12 @@
 
 @font-face {
   font-family: 'MyFont';
-  src: url('./assets/fonts/JackportRegularNcv-BeY3.ttf') format('truetype');
+  src: url('./assets/fonts/acampusbold.ttf') format('truetype');
 }
 
 .font-custom {
   font-family: 'MyFont';
+  font-weight: bold;
 }
 
 * {

@@ -68,13 +68,13 @@ export const ConstructorBlackBall = () => {
     >
       <>
         <pre
-          className="font-bold w-[98%] text-center absolute z-30 text-white leading-9 uppercase "
+          className="font-bold w-[98%] text-center absolute z-30 text-white leading-9 uppercase font-custom"
           style={nameStyles}
         >
           {fullName.trim().split(' ').join('\n')}
         </pre>
         <p
-          className="font-bold w-[98%] text-center absolute z-30 text-white "
+          className="font-bold w-[98%] text-center absolute z-30 text-white font-custom"
           style={numberStyles}
         >
           {number}

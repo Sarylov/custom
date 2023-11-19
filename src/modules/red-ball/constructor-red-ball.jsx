@@ -160,7 +160,7 @@ export const ConstructorRedBall = () => {
           {fullName.trim().split(' ').join('\n')}
         </pre>
         <p
-          className="font-bold w-[98%] text-center absolute z-30 text-white font-custom"
+          className="font-bold  text-center absolute z-30 text-white font-custom inline-block left-[50%] -translate-x-[50%]"
           style={numberStyles}
         >
           {number}
