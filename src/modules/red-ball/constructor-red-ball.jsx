@@ -23,7 +23,7 @@ export const ConstructorRedBall = () => {
         }
       : {
           fontSize: (widthComponent / 100) * 17,
-          top: '9%',
+          top: '10%',
         };
 
   const nameParts = fullName.trim().split(' ');
@@ -154,13 +154,13 @@ export const ConstructorRedBall = () => {
       {/* надписи */}
       <>
         <pre
-          className="font-bold w-[98%] text-center absolute z-30 text-white leading-9 uppercase "
+          className="font-bold w-[98%] text-center absolute z-30 text-white leading-9 uppercase font-custom"
           style={nameStyles}
         >
           {fullName.trim().split(' ').join('\n')}
         </pre>
         <p
-          className="font-bold w-[98%] text-center absolute z-30 text-white "
+          className="font-bold w-[98%] text-center absolute z-30 text-white font-custom"
           style={numberStyles}
         >
           {number}
@@ -188,22 +188,22 @@ export const ConstructorRedBall = () => {
         changeFile={changeFile}
         changeCropped={changeCropped}
         classNameWrapper=" grid-ball-cell w-full"
-        className="absolute top-[19.5%] left-[50%]  -translate-x-[50%] z-20 "
-        width={'24.8%'}
-        height={'32%'}
+        className="absolute top-[20.4%] left-[50%] opacity-70  -translate-x-[50%] z-20 "
+        width={'26.2%'}
+        height={'30.5%'}
         id={678}
-        isTransparentBackground
+        // isTransparentBackground
         cropAspect={1 / 2.5}
       />
       <SquareCell
         changeFile={changeFile}
         changeCropped={changeCropped}
         classNameWrapper=" grid-ball-cell w-full"
-        className="absolute top-[67.8%] left-[50%]  -translate-x-[50%] z-20 rotate-180 "
-        width={'24.8%'}
-        height={'32%'}
+        className="absolute top-[68.8%] left-[50%] opacity-70  -translate-x-[50%] z-20 rotate-180 "
+        width={'26.2%'}
+        height={'31%'}
         id={16}
-        isTransparentBackground
+        // isTransparentBackground
         cropAspect={1 / 2.5}
       />
       <img
