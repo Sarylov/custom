@@ -5,6 +5,7 @@ import { Modal } from './modal';
 
 export const SquareCell = ({
   id,
+  preview = <p>{id}</p>,
   width,
   height,
   changeFile,
@@ -66,7 +67,7 @@ export const SquareCell = ({
               className="h-full w-full object-cover"
             />
           ) : (
-            <p className="text-white">{id}</p>
+            <>{preview}</>
           )}
         </div>
       </Modal>
