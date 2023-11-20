@@ -1,11 +1,9 @@
 import { useContext, useState } from 'react';
 import { getScreenshot, getTxtFile } from '../helpers/files';
 import { BallConstructorContext } from '../contexts/ball-constructor-context';
-import { useNavigate } from 'react-router-dom';
 
 export const ContactForm = () => {
-  const { sendFiles } = useContext(BallConstructorContext);
-  const navigate = useNavigate();
+  const { sendFiles, fetchPay } = useContext(BallConstructorContext);
 
   const [FIO, setFIO] = useState('');
   const [email, setEmail] = useState('');
@@ -29,7 +27,10 @@ export const ContactForm = () => {
       );
 
       if (res.status) {
-        navigate('/success');
+        const createPayRes = await fetchPay();
+        if (createPayRes.status === 200) {
+          window.location.replace(createPayRes.data.confirmation_url);
+        }
       } else {
         setError('Произошла, какая то ошибка, повторите попытку позднее');
       }

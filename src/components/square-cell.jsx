@@ -33,6 +33,7 @@ export const SquareCell = ({
       <Modal
         name={`crop-${id}`}
         title={`Загрузить картинку ${id}`}
+        closeButtonContent="Загрузить фото"
         content={
           <div className="flex flex-col gap-4 mt-4">
             <input
@@ -41,7 +42,7 @@ export const SquareCell = ({
               accept="image/*"
               onChange={handleFileChange}
             />
-            <div className="w-full h-[60vh]">
+            <div className={`w-full ${imageSrc ? 'h-[60vh]' : ''}`}>
               <CropperImage
                 setCroppedimage={(cropped) => {
                   changeCropped(id, cropped);

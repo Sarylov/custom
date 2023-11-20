@@ -20,7 +20,7 @@ export const Success = () => {
         </svg>
         <span>
           Ваша заявка успешно создана! Мы свяжемся с вами в ближайшее время,
-          чтобы уточнить детали доставки и оплаты.
+          чтобы уточнить детали доставки.
         </span>
       </div>
       <button className="btn self-start" onClick={() => navigate('/')}>
