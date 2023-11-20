@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { getFileFromBase64 } from '../helpers/files';
+import { getFileFromBase64, getTxtFile } from '../helpers/files';
 
 export const useBall = () => {
   const [files, setFiles] = useState({});
   const [cropped, setCropped] = useState({});
+  const [fullName, setFullName] = useState();
+  const [number, setNumber] = useState();
 
   function changeFile(id, file) {
     setFiles((prev) => {
@@ -53,12 +55,26 @@ export const useBall = () => {
 
     formData.append('email', email);
 
+    if (number || fullName) {
+      const nameAndNumber = `Имя игрока (надпись на мяче): ${fullName}\nНомер игрока: ${number}`;
+      const nameAndNumberFile = getTxtFile(nameAndNumber, 'nameAndNumber');
+
+      formData.append('2_3_5', nameAndNumberFile);
+    }
+
     return fetch('http://localhost:8000/uploadFiles', {
       method: 'POST',
-      // mode: 'no-cors',
       body: formData,
     }).then((res) => res.json());
   }
 
-  return { changeFile, sendFiles, changeCropped };
+  return {
+    changeFile,
+    sendFiles,
+    changeCropped,
+    fullName,
+    setFullName,
+    number,
+    setNumber,
+  };
 };
