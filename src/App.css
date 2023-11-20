@@ -4,12 +4,11 @@
 
 @font-face {
   font-family: 'MyFont';
-  src: url('./assets/fonts/acampusbold.ttf') format('truetype');
+  src: url('./assets/fonts/a-campus-bold.woff2') format('truetype');
 }
 
 .font-custom {
   font-family: 'MyFont';
-  font-weight: bold;
 }
 
 * {
@@ -30,6 +29,10 @@
 }
 .constructor {
   flex: 1;
+}
+
+.stroke {
+  -webkit-text-stroke: 0.05em #eb0404;
 }
 
 .grid-ball {
