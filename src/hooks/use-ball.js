@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { getFileFromBase64, getTxtFile } from '../helpers/files';
 
+const URL_API = import.meta.env.VITE_URL_API;
+
 export const useBall = () => {
   const [files, setFiles] = useState({});
   const [cropped, setCropped] = useState({});
@@ -62,7 +64,7 @@ export const useBall = () => {
       formData.append('2_3_5', nameAndNumberFile);
     }
 
-    return fetch('http://localhost:3000/v1/upload', {
+    return fetch(URL_API + '/upload', {
       method: 'POST',
       body: formData,
     }).then((res) => res.json());
@@ -78,7 +80,7 @@ export const useBall = () => {
       },
     };
 
-    await fetch('http://localhost:3000/v1/payment/create', {
+    await fetch(URL_API + '/payment/create', {
       method: 'POST',
       body: JSON.stringify(options),
     }).then((res) => res.json);
