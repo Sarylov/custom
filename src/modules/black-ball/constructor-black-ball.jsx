@@ -20,6 +20,7 @@ export const ConstructorBlackBall = () => {
   useEffect(() => {
     setFullName('Имя фамилия');
     setNumber(0);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const numberStyles =

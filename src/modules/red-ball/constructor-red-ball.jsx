@@ -26,6 +26,7 @@ export const ConstructorRedBall = () => {
   useEffect(() => {
     setFullName('Имя фамилия');
     setNumber(0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const numberStyles =
@@ -217,12 +218,12 @@ export const ConstructorRedBall = () => {
         height={'30.5%'}
         id={'6_7_8'}
         isTransparentBackground
-        preview={
-          <img
-            src={playerImage}
-            alt="player example"
-            className="w-full h-full object-cover"
-          />
+        preview={          
+            <img
+              src={playerImage}
+              alt="player example"
+              className="w-full h-full object-cover"
+            />          
         }
         cropAspect={1 / 2.5}
       />
