@@ -62,10 +62,26 @@ export const useBall = () => {
       formData.append('2_3_5', nameAndNumberFile);
     }
 
-    return fetch('http://localhost:8000/uploadFiles', {
+    return fetch('http://localhost:3000/v1/upload', {
       method: 'POST',
       body: formData,
     }).then((res) => res.json());
+  }
+
+  async function fetchPay() {
+    const options = {
+      amount: '4000.00',
+      payment_method_type: 'bank_card',
+      confirmation: {
+        type: 'redirect',
+        return_url: `${window.location.origin}/success`,
+      },
+    };
+
+    await fetch('http://localhost:3000/v1/payment/create', {
+      method: 'POST',
+      body: JSON.stringify(options),
+    }).then((res) => res.json);
   }
 
   return {
@@ -76,5 +92,6 @@ export const useBall = () => {
     setFullName,
     number,
     setNumber,
+    fetchPay,
   };
 };
