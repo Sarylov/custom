@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'MyFont';
+  src: url('./assets/fonts/a-campus-bold.woff2') format('truetype');
+}
+
+.font-custom {
+  font-family: 'MyFont';
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +18,7 @@
 }
 
 .app {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -20,6 +29,22 @@
 }
 .constructor {
   flex: 1;
+}
+
+.stroke {
+  -webkit-text-stroke: 0.05em #eb0404;
+}
+
+.grid-ball {
+  pointer-events: none;
+}
+
+.grid-ball-cell {
+  pointer-events: auto;
+}
+
+#constructor {
+  user-select: none;
 }
 
 .cell {
@@ -98,5 +123,11 @@
 .cell-31 {
   -webkit-mask-image: url(./assets/cells/9_12_11_13_16_15.svg);
   mask-image: url(./assets/cells/8.svg);
+}
+
+.no-arrows::-webkit-outer-spin-button,
+.no-arrows::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
