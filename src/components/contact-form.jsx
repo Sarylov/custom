@@ -20,10 +20,13 @@ export const ContactForm = () => {
       const screenshot = await getScreenshot('constructor');
       const userInfo = `ФИО: ${FIO}\nПочта: ${email}\nТелефон: ${phone}\nАдрес: ${address}`;
       const userInfoFile = getTxtFile(userInfo);
-      const res = await sendFiles([
-        { name: 'user info', file: userInfoFile },
-        { name: 'result', file: screenshot },
-      ]);
+      const res = await sendFiles(
+        [
+          { name: 'user info', file: userInfoFile },
+          { name: 'result', file: screenshot },
+        ],
+        email
+      );
 
       if (res.status) {
         navigate('/success');

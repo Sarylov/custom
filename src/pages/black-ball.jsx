@@ -1,16 +1,16 @@
 import { ContactForm } from '../components/contact-form';
-import { BallConstructorContext } from './../contexts/ball-constructor-context';
+import { BallConstructorContext } from '../contexts/ball-constructor-context';
 import { useBall } from '../hooks/use-ball';
-import { ConstructorWithForm } from './../layouts/constructor-with-form';
-import { ConstructorWhiteball } from '../modules/white-ball';
+import { ConstructorWithForm } from '../layouts/constructor-with-form';
+import { ConstructorBlackBall } from './../modules/black-ball';
 
-export const Whiteball = () => {
+export const BlackBall = () => {
   const contextValue = useBall();
   return (
     <BallConstructorContext.Provider value={contextValue}>
       <ConstructorWithForm
         form={<ContactForm />}
-        constructor={<ConstructorWhiteball />}
+        constructor={<ConstructorBlackBall />}
       />
     </BallConstructorContext.Provider>
   );

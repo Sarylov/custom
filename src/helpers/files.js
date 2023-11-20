@@ -1,5 +1,4 @@
 import html2canvas from 'html2canvas';
-// import base64ToFile from 'base64-to-file';
 
 export async function TakeScreenshot(name, elementId) {
   const element = document.getElementById(elementId);
@@ -13,6 +12,20 @@ export async function TakeScreenshot(name, elementId) {
   link.click();
 }
 
+export const saveImage = () => {
+  const element = document.getElementById('constructor'); // Замените 'yourElementId' на id вашего элемента
+  html2canvas(element, {
+    scale: 12,
+  }).then((canvas) => {
+    const dataUrl = canvas.toDataURL();
+    const link = document.createElement('a');
+
+    link.download = name + 'image.png';
+    link.href = dataUrl;
+    link.click();
+  });
+};
+
 export async function getScreenshot(elementId) {
   const element = document.getElementById(elementId);
   const canvas = await html2canvas(element);
@@ -24,9 +37,9 @@ export async function getScreenshot(elementId) {
   return file;
 }
 
-export function getTxtFile(text) {
+export function getTxtFile(text, fileName = 'textFile.txt') {
   const blob = new Blob([text], { type: 'text/plain' });
-  const file = new File([blob], 'textFile.txt', { type: 'text/plain' });
+  const file = new File([blob], fileName, { type: 'text/plain' });
   return file;
 }
 

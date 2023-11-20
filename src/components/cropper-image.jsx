@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Cropper from 'react-easy-crop';
 
 // eslint-disable-next-line react/prop-types
-export const CropperImage = ({ setCroppedimage, imageSrc }) => {
+export const CropperImage = ({ setCroppedimage, imageSrc, aspect = 1 / 1 }) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
 
@@ -38,7 +38,7 @@ export const CropperImage = ({ setCroppedimage, imageSrc }) => {
         image={imageSrc}
         crop={crop}
         zoom={zoom}
-        aspect={1 / 1}
+        aspect={aspect}
         onCropChange={setCrop}
         onCropComplete={onCropComplete}
         onZoomChange={setZoom}

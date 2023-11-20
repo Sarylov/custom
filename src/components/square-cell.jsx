@@ -5,12 +5,15 @@ import { Modal } from './modal';
 
 export const SquareCell = ({
   id,
+  preview = <p>{id}</p>,
   width,
   height,
   changeFile,
   changeCropped,
   className,
   classNameWrapper,
+  isTransparentBackground = false,
+  cropAspect = 1 / 1,
 }) => {
   const [imageSrc, setImageSrc] = useState('');
   const [croppedImage, setCroppedimage] = useState(null);
@@ -44,6 +47,7 @@ export const SquareCell = ({
                   changeCropped(id, cropped);
                   setCroppedimage(cropped);
                 }}
+                aspect={cropAspect}
                 imageSrc={imageSrc}
               />
             </div>
@@ -51,7 +55,9 @@ export const SquareCell = ({
         }
       >
         <div
-          className={`${className} cursor-pointer cell bg-gray-700 flex justify-center items-center`}
+          className={`${className} cursor-pointer cell ${
+            isTransparentBackground ? 'bg-transparent' : 'bg-gray-700'
+          }  flex justify-center items-center`}
           style={{ width, height }}
         >
           {croppedImage ? (
@@ -61,7 +67,7 @@ export const SquareCell = ({
               className="h-full w-full object-cover"
             />
           ) : (
-            <p className="text-white">{id}</p>
+            <>{preview}</>
           )}
         </div>
       </Modal>
