@@ -192,6 +192,7 @@ export const ConstructorRedBall = () => {
         </p>
         <Modal
           title="Введите данные"
+          closeButtonContent="Ввести данные"
           name={'black-ball'}
           content={
             <PrintForm state={{ fullName, setFullName, number, setNumber }} />
@@ -213,17 +214,17 @@ export const ConstructorRedBall = () => {
         changeFile={changeFile}
         changeCropped={changeCropped}
         classNameWrapper=" grid-ball-cell w-full"
-        className="absolute top-[20.4%] left-[50%] -translate-x-[50%] z-20 "
+        className="absolute top-[20.4%] left-[50%] -translate-x-[50%] z-20  "
         width={'26.2%'}
         height={'30.5%'}
         id={'6_7_8'}
         isTransparentBackground
-        preview={          
-            <img
-              src={playerImage}
-              alt="player example"
-              className="w-full h-full object-cover"
-            />          
+        preview={
+          <img
+            src={playerImage}
+            alt="player example"
+            className="w-full h-full object-cover"
+          />
         }
         cropAspect={1 / 2.5}
       />

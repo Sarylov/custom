@@ -10,7 +10,11 @@ export const Hint = ({
       {component ? (
         { component }
       ) : (
-        <div className={`badge badge-accent absolute ${className}`}>{text}</div>
+        <div
+          className={`text-white text-center p-2 bg-accent rounded-xl  absolute ${className}`}
+        >
+          {text}
+        </div>
       )}
     </div>
   );

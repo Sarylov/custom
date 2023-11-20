@@ -20,7 +20,7 @@ export const ConstructorBlackBall = () => {
   useEffect(() => {
     setFullName('Имя фамилия');
     setNumber(0);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const numberStyles =
@@ -101,6 +101,7 @@ export const ConstructorBlackBall = () => {
       <Modal
         title="Введите данные"
         name={'black-ball'}
+        closeButtonContent="Ввести данные"
         content={
           <PrintForm state={{ fullName, setFullName, number, setNumber }} />
         }
