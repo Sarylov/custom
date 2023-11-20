@@ -1,35 +1,50 @@
-import { useContext, useLayoutEffect, useRef, useState } from 'react';
+import {
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import RedBallGrid from '../../assets/red_ball/grid.png';
 import Background from '../../assets/red_ball/black.png';
 import { BallConstructorContext } from '../../contexts/ball-constructor-context';
 import { SquareCell } from '../../components/square-cell';
 import { Modal } from '../../components/modal';
 import { PrintForm } from '../../components/print-form';
+import playerImage from '../../assets/images/player.png';
 
 const WIDTH = '17.6%';
 const HEIGHT = '10.4%';
 
 export const ConstructorRedBall = () => {
-  const [fullName, setFullName] = useState('Иван Иванов');
-  const [number, setNumber] = useState(7);
+  const { fullName, setFullName, number, setNumber } = useContext(
+    BallConstructorContext
+  );
   const refComponent = useRef(null);
   const [widthComponent, setWidthComponent] = useState(0);
 
-  const numberStyles =
-    String(number).length > 1
-      ? {
-          fontSize: (widthComponent / 100) * 12,
-          top: '11%',
-        }
-      : {
-          fontSize: (widthComponent / 100) * 17,
-          top: '10%',
-        };
+  useEffect(() => {
+    setFullName('Имя фамилия');
+    setNumber(0);
+  }, []);
 
-  const nameParts = fullName.trim().split(' ');
-  const nameLen = nameParts.length;
-  const maxLenPart = nameParts.reduce(
-    (max, part) => (max < part.length ? part.length : max),
+  const numberStyles =
+    number !== undefined
+      ? String(number)?.length > 1
+        ? {
+            fontSize: (widthComponent / 100) * 12,
+            top: '11.5%',
+          }
+        : {
+            fontSize: (widthComponent / 100) * 15,
+            top: '10.5%',
+          }
+      : {};
+
+  const nameParts = fullName?.trim()?.split(' ');
+  const nameLen = nameParts?.length;
+  const maxLenPart = nameParts?.reduce(
+    (max, part) => (max < part?.length ? part?.length : max),
     0
   );
 
@@ -39,21 +54,22 @@ export const ConstructorRedBall = () => {
       ? defaultSize
       : defaultSize - maxLenPart * reduceBy);
 
-  const nameStyles =
-    (nameLen === 1 && {
-      fontSize: getWidth(6, 8, 0.2),
-      top: '4.8%',
-    }) ||
-    (nameLen === 2 && {
-      fontSize: getWidth(12, 6, 0.12),
-      top: `${maxLenPart < 12 ? 4 : 4 + maxLenPart * 0.05}%`,
-      lineHeight: '82%',
-    }) ||
-    (nameLen === 3 && {
-      fontSize: getWidth(14, 4, 0.07),
-      top: `${maxLenPart < 14 ? 4.5 : 4.5 + maxLenPart * 0.02}%`,
-      lineHeight: '82%',
-    });
+  const nameStyles = fullName
+    ? (nameLen === 1 && {
+        fontSize: getWidth(6, 8, 0.3),
+        top: '4.8%',
+      }) ||
+      (nameLen === 2 && {
+        fontSize: getWidth(8, 7, 0.24),
+        top: `${maxLenPart < 8 ? 4 : 4 + maxLenPart * 0.08}%`,
+        lineHeight: '82%',
+      }) ||
+      (nameLen === 3 && {
+        fontSize: getWidth(13, 4, 0.07),
+        top: `${maxLenPart < 13 ? 4.3 : 4.3 + maxLenPart * 0.03}%`,
+        lineHeight: '82%',
+      })
+    : {};
 
   useLayoutEffect(() => {
     function handleResize() {
@@ -82,7 +98,8 @@ export const ConstructorRedBall = () => {
           className="absolute top-[16.9%] left-[16.7%] rotate-[12.3deg]"
           width={WIDTH}
           height={HEIGHT}
-          id={3}
+          preview={1}
+          id={9}
         />
 
         <SquareCell
@@ -92,7 +109,8 @@ export const ConstructorRedBall = () => {
           className="absolute top-[16.9%] right-[16.7%] -rotate-[12.3deg]"
           width={WIDTH}
           height={HEIGHT}
-          id={5}
+          preview={2}
+          id={13}
         />
         <SquareCell
           changeFile={changeFile}
@@ -101,7 +119,8 @@ export const ConstructorRedBall = () => {
           className="absolute top-[34.8%] left-[16.7%] -rotate-[12.3deg]"
           width={WIDTH}
           height={HEIGHT}
-          id={8}
+          preview={3}
+          id={12}
         />
         <SquareCell
           changeFile={changeFile}
@@ -110,7 +129,8 @@ export const ConstructorRedBall = () => {
           className="absolute top-[34.8%] right-[16.6%] rotate-[12.3deg]"
           width={WIDTH}
           height={HEIGHT}
-          id={10}
+          preview={4}
+          id={16}
         />
         {/* нижняя часть */}
         <SquareCell
@@ -120,7 +140,8 @@ export const ConstructorRedBall = () => {
           className="absolute top-[65.3%] left-[16.7%] rotate-[192.3deg]"
           width={WIDTH}
           height={HEIGHT}
-          id={11}
+          preview={5}
+          id={25}
         />
 
         <SquareCell
@@ -130,7 +151,8 @@ export const ConstructorRedBall = () => {
           className="absolute top-[65.3%] right-[16.6%] -rotate-[192.3deg]"
           width={WIDTH}
           height={HEIGHT}
-          id={12}
+          preview={6}
+          id={29}
         />
         <SquareCell
           changeFile={changeFile}
@@ -139,7 +161,8 @@ export const ConstructorRedBall = () => {
           className="absolute top-[83.3%] left-[16.7%] -rotate-[192.3deg]"
           width={WIDTH}
           height={HEIGHT}
-          id={15}
+          preview={7}
+          id={28}
         />
         <SquareCell
           changeFile={changeFile}
@@ -148,22 +171,23 @@ export const ConstructorRedBall = () => {
           className="absolute top-[83.3%] right-[16.7%] rotate-[192.3deg]"
           width={WIDTH}
           height={HEIGHT}
-          id={17}
+          preview={8}
+          id={31}
         />
       </>
       {/* надписи */}
       <>
         <pre
-          className="font-bold w-[98%] text-center absolute z-30 text-white leading-9 uppercase font-custom"
+          className="font-bold w-[98%] text-center absolute z-30 text-white leading-9 uppercase font-custom stroke"
           style={nameStyles}
         >
-          {fullName.trim().split(' ').join('\n')}
+          {fullName && fullName.trim().split(' ').join('\n')}
         </pre>
         <p
-          className="font-bold  text-center absolute z-30 text-white font-custom inline-block left-[50%] -translate-x-[50%]"
+          className="font-bold  text-center absolute z-30 text-white font-custom inline-block left-[50%] -translate-x-[50%] stroke"
           style={numberStyles}
         >
-          {number}
+          {number !== undefined && number}
         </p>
         <Modal
           title="Введите данные"
@@ -173,8 +197,8 @@ export const ConstructorRedBall = () => {
           }
         >
           <div
-            className="absolute left-1/2 w-[50%] top-[2%] z-30 -translate-x-[50%]  cursor-pointer "
-            style={{ height: '14%' }}
+            className="absolute left-1/2 w-[40%] -top-[3.5%] z-[30]  -translate-x-[50%] cursor-pointer rotate-45 flex justify-center"
+            style={{ height: '20%' }}
           ></div>
         </Modal>
       </>
@@ -188,24 +212,39 @@ export const ConstructorRedBall = () => {
         changeFile={changeFile}
         changeCropped={changeCropped}
         classNameWrapper=" grid-ball-cell w-full"
-        className="absolute top-[20.4%] left-[50%] opacity-70  -translate-x-[50%] z-20 "
+        className="absolute top-[20.4%] left-[50%] -translate-x-[50%] z-20 "
         width={'26.2%'}
         height={'30.5%'}
-        id={678}
-        // isTransparentBackground
+        id={'6_7_8'}
+        isTransparentBackground
+        preview={
+          <img
+            src={playerImage}
+            alt="player example"
+            className="w-full h-full object-cover"
+          />
+        }
         cropAspect={1 / 2.5}
       />
       <SquareCell
         changeFile={changeFile}
         changeCropped={changeCropped}
         classNameWrapper=" grid-ball-cell w-full"
-        className="absolute top-[68.8%] left-[50%] opacity-70  -translate-x-[50%] z-20 rotate-180 "
+        className="absolute top-[68.8%] left-[50%] -translate-x-[50%] z-20 rotate-180 "
         width={'26.2%'}
         height={'31%'}
-        id={16}
-        // isTransparentBackground
+        id={'22_23_24'}
+        isTransparentBackground
+        preview={
+          <img
+            src={playerImage}
+            alt="player example"
+            className="w-full h-full object-cover"
+          />
+        }
         cropAspect={1 / 2.5}
       />
+
       <img
         onLoad={() => {
           setWidthComponent(refComponent.current.offsetWidth);

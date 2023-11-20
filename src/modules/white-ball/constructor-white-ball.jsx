@@ -20,7 +20,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[1.4%] left-[30.8%]"
         width={WIDTH}
         height={HEIGHT}
-        id={1}
+        preview={1}
+        id={2}
       />
       <SquareCell
         changeFile={changeFile}
@@ -29,7 +30,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[1.4%] left-[51.4%]"
         width={WIDTH}
         height={HEIGHT}
-        id={2}
+        preview={2}
+        id={3}
       />
       <SquareCell
         changeFile={changeFile}
@@ -38,7 +40,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[25.8%] left-[4%]"
         width={WIDTH}
         height={HEIGHT}
-        id={6}
+        preview={6}
+        id={11}
       />
       <SquareCell
         changeFile={changeFile}
@@ -47,7 +50,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[16.9%] left-[16.7%] rotate-[12.3deg]"
         width={WIDTH}
         height={HEIGHT}
-        id={3}
+        preview={3}
+        id={9}
       />
       <SquareCell
         changeFile={changeFile}
@@ -56,7 +60,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[21.1%] left-[40%]"
         width={'20.3%'}
         height={'9.1%'}
-        id={4}
+        preview={4}
+        id={6}
       />
       <SquareCell
         changeFile={changeFile}
@@ -65,7 +70,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[25.9%] right-[3.9%]"
         width={WIDTH}
         height={HEIGHT}
-        id={7}
+        preview={7}
+        id={15}
       />
       <SquareCell
         changeFile={changeFile}
@@ -74,7 +80,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[16.9%] right-[16.7%] -rotate-[12.3deg]"
         width={WIDTH}
         height={HEIGHT}
-        id={5}
+        preview={5}
+        id={13}
       />
       <SquareCell
         changeFile={changeFile}
@@ -83,7 +90,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[34.8%] left-[16.7%] -rotate-[12.3deg]"
         width={WIDTH}
         height={HEIGHT}
-        id={8}
+        preview={8}
+        id={12}
       />
       <SquareCell
         changeFile={changeFile}
@@ -92,7 +100,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[31.6%] left-[40%]"
         width={'20.3%'}
         height={'9.1%'}
-        id={9}
+        preview={9}
+        id={7}
       />
       <SquareCell
         changeFile={changeFile}
@@ -101,7 +110,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[34.8%] right-[16.6%] rotate-[12.3deg]"
         width={WIDTH}
         height={HEIGHT}
-        id={10}
+        preview={10}
+        id={16}
       />
       {/* нижняя часть */}
       <SquareCell
@@ -111,7 +121,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[74.3%] left-[3.6%] rotate-180"
         width={WIDTH}
         height={HEIGHT}
-        id={13}
+        preview={13}
+        id={27}
       />
       <SquareCell
         changeFile={changeFile}
@@ -120,7 +131,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[65.3%] left-[16.7%] rotate-[192.3deg]"
         width={WIDTH}
         height={HEIGHT}
-        id={11}
+        preview={11}
+        id={25}
       />
       <SquareCell
         changeFile={changeFile}
@@ -129,7 +141,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[74.3%] right-[3.7%] rotate-180"
         width={WIDTH}
         height={HEIGHT}
-        id={14}
+        preview={14}
+        id={32}
       />
       <SquareCell
         changeFile={changeFile}
@@ -138,7 +151,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[65.3%] right-[16.6%] -rotate-[192.3deg]"
         width={WIDTH}
         height={HEIGHT}
-        id={12}
+        preview={12}
+        id={29}        
       />
       <SquareCell
         changeFile={changeFile}
@@ -147,7 +161,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[83.3%] left-[16.7%] -rotate-[192.3deg]"
         width={WIDTH}
         height={HEIGHT}
-        id={15}
+        preview={15}
+        id={28}
       />
       <SquareCell
         changeFile={changeFile}
@@ -156,7 +171,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[80.3%] left-[39.7%] rotate-180"
         width={'20.3%'}
         height={'9.1%'}
-        id={16}
+        preview={16}
+        id={22}
       />
       <SquareCell
         changeFile={changeFile}
@@ -165,7 +181,8 @@ export const ConstructorWhiteball = () => {
         className="absolute top-[83.3%] right-[16.7%] rotate-[192.3deg]"
         width={WIDTH}
         height={HEIGHT}
-        id={17}
+        preview={17}
+        id={31}
       />
 
       <img
