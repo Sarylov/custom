@@ -62,7 +62,7 @@ export const useBall = () => {
       formData.append('2_3_5', nameAndNumberFile);
     }
 
-    return fetch('localhost:3000/v1/upload', {
+    return fetch('http://localhost:3000/v1/upload', {
       method: 'POST',
       body: formData,
     }).then((res) => res.json());
@@ -78,7 +78,7 @@ export const useBall = () => {
       },
     };
 
-    await fetch('localhost:3000/v1/payment/create', {
+    await fetch('http://localhost:3000/v1/payment/create', {
       method: 'POST',
       body: JSON.stringify(options),
     }).then((res) => res.json);
