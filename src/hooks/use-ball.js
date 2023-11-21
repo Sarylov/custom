@@ -76,16 +76,18 @@ export const useBall = () => {
       payment_method_type: 'bank_card',
       confirmation: {
         type: 'redirect',
-        return_url: `${window.location.origin}/success`,
+        return_url: 'https://i.moymyach.ru/success',
       },
     };
 
-    await fetch(URL_API + '/payment/create', {
+    return fetch(URL_API + '/payment/create', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify(options),
-    }).then((res) => res.json);
+    }).then((res) => res.json());
   }
-
   return {
     changeFile,
     sendFiles,
