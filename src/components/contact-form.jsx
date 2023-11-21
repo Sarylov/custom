@@ -85,7 +85,7 @@ export const ContactForm = () => {
         <span className="divider"></span>
         {error && <p className="text-error text-center mb-2 -mt-4">{error}</p>}
         <button className="btn btn-primary" onClick={submit}>
-          Отправить заявку
+          Перейти к оплате
         </button>
       </div>
     </div>
