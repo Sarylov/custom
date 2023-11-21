@@ -72,7 +72,7 @@ export const useBall = () => {
 
   async function fetchPay() {
     const options = {
-      amount: '4000.00',
+      amount: '1.00',
       payment_method_type: 'bank_card',
       confirmation: {
         type: 'redirect',
