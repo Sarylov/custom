@@ -223,6 +223,7 @@ export const ConstructorRedBall = () => {
         height={'30.5%'}
         id={'6_7_8'}
         isTransparentBackground
+        modalTitle="Создайте макет вертикального сектора"
         preview={
           <img
             src={playerImage}
@@ -241,6 +242,7 @@ export const ConstructorRedBall = () => {
         height={'31%'}
         id={'22_23_24'}
         isTransparentBackground
+        modalTitle="Создайте макет вертикального сектора"
         preview={
           <img
             src={playerImage}
