@@ -5,10 +5,12 @@ import {
   useRef,
   useState,
 } from 'react';
-import grid from '../../assets/black_ball/grid.png';
+import grid from '../../assets/images/grids/black-grid.png';
+import gridMin from '../../assets/images/grids/black-grid_mobile.png';
 import { Modal } from '../../components/modal';
 import { PrintForm } from '../../components/print-form';
 import { BallConstructorContext } from '../../contexts/ball-constructor-context';
+import { ConstucrotGridImage } from '../../components/constucrot-grid-image';
 
 export const ConstructorBlackBall = () => {
   const { fullName, setFullName, number, setNumber } = useContext(
@@ -106,13 +108,12 @@ export const ConstructorBlackBall = () => {
           <PrintForm state={{ fullName, setFullName, number, setNumber }} />
         }
       >
-        <img
+        <ConstucrotGridImage
+          largeImagePath={grid}
+          minImagePath={gridMin}
           onLoad={() => {
             setWidthComponent(refComponent.current.offsetWidth);
           }}
-          src={grid}
-          alt="grid_black_ball"
-          className="w-full relative grid-ball"
         />
       </Modal>
     </div>
