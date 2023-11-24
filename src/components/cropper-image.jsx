@@ -33,7 +33,7 @@ export const CropperImage = ({ setCroppedimage, imageSrc, aspect = 1 / 1 }) => {
   };
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full rounded-xl overflow-hidden">
       <Cropper
         image={imageSrc}
         crop={crop}
