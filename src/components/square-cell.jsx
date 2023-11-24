@@ -58,9 +58,11 @@ export const SquareCell = ({
               <li className="step">Сохрани макет сектора</li>
             </ul>
             <NumberListItem
-              number={<span className={step === 1 ? 'font-bold' : ''}>1</span>}
+              number={
+                <span className={step === 1 ? 'font-bold text-lg' : ''}>1</span>
+              }
             >
-              <h3 className={`${step === 1 ? 'font-bold' : ''}`}>
+              <h3 className={`${step === 1 ? 'font-bold text-lg' : ''}`}>
                 Загрузите фото в полный рост
               </h3>
               <p>Выбирайте фотографии в хорошем качестве</p>
@@ -74,9 +76,11 @@ export const SquareCell = ({
               />
             </NumberListItem>
             <NumberListItem
-              number={<span className={step === 2 ? 'font-bold' : ''}>2</span>}
+              number={
+                <span className={step === 2 ? 'font-bold text-lg' : ''}>2</span>
+              }
             >
-              <h3 className={`${step === 2 ? 'font-bold' : ''}`}>
+              <h3 className={`${step === 2 ? 'font-bold text-lg' : ''}`}>
                 Скадрируйте фотографию
               </h3>
               {step === 2 && (
