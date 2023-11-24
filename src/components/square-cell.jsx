@@ -51,11 +51,9 @@ export const SquareCell = ({
         content={
           <div className="flex flex-col gap-4 mt-4">
             <ul className="steps">
-              <li className="step step-primary">Загрузите фото</li>
-              <li className={`step ${step === 2 ? 'step-primary' : ''}`}>
-                Скадрируйте фотографию
-              </li>
-              <li className="step">Сохрани макет сектора</li>
+              <li className="step step-primary"></li>
+              <li className={`step ${step === 2 ? 'step-primary' : ''}`}></li>
+              <li className="step"></li>
             </ul>
             <NumberListItem
               number={
