@@ -5,13 +5,16 @@ import {
   useRef,
   useState,
 } from 'react';
-import RedBallGrid from '../../assets/red_ball/grid.png';
-import Background from '../../assets/red_ball/black.png';
+import RedBallGrid from '../../assets/images/grids/red-grid.png';
+import RedBallGridMin from '../../assets/images/grids/red-grid_mobile.png';
+import Background from '../../assets/images/grids/red-grid_black.png';
+import BackgroundMin from '../../assets/images/grids/red-grid_black_mobile.png';
 import { BallConstructorContext } from '../../contexts/ball-constructor-context';
 import { SquareCell } from '../../components/square-cell';
 import { Modal } from '../../components/modal';
 import { PrintForm } from '../../components/print-form';
 import playerImage from '../../assets/images/player.png';
+import { ConstucrotGridImage } from '../../components/constucrot-grid-image';
 
 const WIDTH = '17.6%';
 const HEIGHT = '10.4%';
@@ -204,9 +207,10 @@ export const ConstructorRedBall = () => {
           ></div>
         </Modal>
       </>
-      <img
-        src={Background}
-        alt="Background"
+
+      <ConstucrotGridImage
+        largeImagePath={Background}
+        minImagePath={BackgroundMin}
         className="w-full grid-ball left-0 top-0 px-[1%] absolute z-30"
       />
       {/* фото на несколько ячеек */}
@@ -246,14 +250,12 @@ export const ConstructorRedBall = () => {
         }
         cropAspect={1 / 2.5}
       />
-
-      <img
+      <ConstucrotGridImage
+        largeImagePath={RedBallGrid}
+        minImagePath={RedBallGridMin}
         onLoad={() => {
           setWidthComponent(refComponent.current.offsetWidth);
         }}
-        src={RedBallGrid}
-        alt="grid_white_ball"
-        className="w-full relative grid-ball"
       />
     </div>
   );
