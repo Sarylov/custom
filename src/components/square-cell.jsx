@@ -26,7 +26,7 @@ export const SquareCell = ({
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
     if (file) {
-      setStep(2);
+      const maxFileSizeByte = 0.5 * 1024 * 1024;
       changeFile(id, file);
 
       const options = {
@@ -36,9 +36,14 @@ export const SquareCell = ({
       };
 
       try {
-        const compressedFile = await imageCompression(file, options);
+        const compressedFile =
+          file.size <= maxFileSizeByte
+            ? file
+            : await imageCompression(file, options);
+
         const imageBase64 = await fileToBase64(compressedFile);
         setImageSrc(imageBase64);
+        setStep(2);
       } catch (error) {
         console.log(error);
         setStep(1);
