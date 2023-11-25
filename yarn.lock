@@ -1085,11 +1085,6 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dom-to-image-more@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/dom-to-image-more/-/dom-to-image-more-3.2.0.tgz#8bc4e0299bb2da9d27d77b89910a4cfd65de49be"
-  integrity sha512-2bGQTB6m17MBseVhIjShwZqqqCyVS9GgTykWqvVXMqr56fSgHhXnEvZfZkaSuHJYW3ICZQ3sZwAu+UY5tfsF9Q==
-
 dot-case@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/dot-case/-/dot-case-3.0.4.tgz#9b2b670d00a431667a8a75ba29cd1b98809ce751"
