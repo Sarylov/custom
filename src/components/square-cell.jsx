@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
+import { fileToBase64 } from '../helpers/files';
+import imageCompression from 'browser-image-compression';
 import { CropperImage } from './cropper-image';
 import { Modal } from './modal';
 import { NumberListItem } from './number-list-item';
@@ -21,16 +23,26 @@ export const SquareCell = ({
   const [croppedImage, setCroppedimage] = useState(null);
   const [step, setStep] = useState(1);
 
-  const handleFileChange = (event) => {
+  const handleFileChange = async (event) => {
     const file = event.target.files[0];
-    changeFile(id, file);
-    const reader = new FileReader();
-    reader.onload = () => {
-      setImageSrc(reader.result);
-    };
     if (file) {
       setStep(2);
-      reader.readAsDataURL(file);
+      changeFile(id, file);
+
+      const options = {
+        maxSizeMB: 0.5,
+        maxWidthOrHeight: 1920,
+        useWebWorker: true,
+      };
+
+      try {
+        const compressedFile = await imageCompression(file, options);
+        const imageBase64 = await fileToBase64(compressedFile);
+        setImageSrc(imageBase64);
+      } catch (error) {
+        console.log(error);
+        setStep(1);
+      }
     } else setStep(1);
   };
 
