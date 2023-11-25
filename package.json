@@ -10,16 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "browser-image-compression": "^2.0.2",
     "daisyui": "^3.9.2",
     "dom-to-image-more": "^3.2.0",
-    "html-to-image": "^1.11.11",
     "html2canvas": "^1.4.1",
-    "lottie-react": "^2.4.0",
-    "puppeteer": "^21.3.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-easy-crop": "^5.0.2",
-    "react-image-crop": "^10.1.8",
     "react-input-mask": "^2.0.4",
     "react-router-dom": "^6.18.0"
   },
