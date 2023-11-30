@@ -35,7 +35,8 @@ export const ContactForm = () => {
         );
 
         if (res.status) {
-          const createPayRes = await fetchPay();
+          const orderId = res.data.cloud_dir_name;
+          const createPayRes = await fetchPay(orderId);
           if (createPayRes.status === 200) {
             window.location.replace(createPayRes.data.confirmation_url);
           } else throw new Error();
