@@ -4,12 +4,15 @@ import whiteballGridMin from '../../assets/images/grids/white-grid_mobile.png';
 import { BallConstructorContext } from '../../contexts/ball-constructor-context';
 import { SquareCell } from '../../components/square-cell';
 import { ConstucrotGridImage } from '../../components/constucrot-grid-image';
+import { GridHints } from '../../components/grid-hints';
 
 const WIDTH = '17.6%';
 const HEIGHT = '10.4%';
 
 export const ConstructorWhiteball = () => {
-  const { changeFile, changeCropped } = useContext(BallConstructorContext);
+  const { changeFile, changeCropped, isRotateConstructor, files } = useContext(
+    BallConstructorContext
+  );
   return (
     <div
       id="constructor"
@@ -176,7 +179,7 @@ export const ConstructorWhiteball = () => {
           width={'20.3%'}
           height={'9.1%'}
           preview={16}
-          id={22}
+          id={23}
         />
         <SquareCell
           changeFile={changeFile}
@@ -193,6 +196,14 @@ export const ConstructorWhiteball = () => {
       <ConstucrotGridImage
         largeImagePath={whiteballGrid}
         minImagePath={whiteballGridMin}
+      />
+
+      {/* подсказки */}
+      <GridHints
+        isRotateConstructor={isRotateConstructor}
+        cellIds={[2, 3, 9, 6,7,13, 11, 12,15, 16, 25, 23, 29, 28, 31, 27,32].filter(
+          (cellId) => !files[cellId]
+        )}
       />
     </div>
   );
