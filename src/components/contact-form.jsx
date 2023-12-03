@@ -64,12 +64,13 @@ export const ContactForm = () => {
         email
       );
 
-      if (res.status) {
-        const createPayRes = await fetchPay();
-        if (createPayRes.status === 200) {
-          window.location.replace(createPayRes.data.confirmation_url);
+        if (res.status) {
+          const orderId = res.data.cloud_dir_name;
+          const createPayRes = await fetchPay(orderId);
+          if (createPayRes.status === 200) {
+            window.location.replace(createPayRes.data.confirmation_url);
+          } else throw new Error();
         } else throw new Error();
-      } else throw new Error();
 
       setIsLoadingRequest(false);
     } catch (error) {
