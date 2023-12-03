@@ -10,7 +10,7 @@ export const QuestionHint = ({
 }) => {
   return (
     <Hint
-      className="z-30 absolute tooltip-left min-w-[1.4rem] w-[4%] cursor-pointer tooltip-accent"
+      className="z-30 absolute tooltip-left min-w-[1.4rem] w-[4%] cursor-pointer tooltip-accent question-hint"
       text={text}
       style={{
         top: top + '%',
