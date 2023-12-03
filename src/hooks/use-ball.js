@@ -8,6 +8,11 @@ export const useBall = () => {
   const [cropped, setCropped] = useState({});
   const [fullName, setFullName] = useState();
   const [number, setNumber] = useState();
+  const [isRotateConstructor, setIsRotateConstructor] = useState(false);
+
+  function rotateConstructor() {
+    setIsRotateConstructor((prev) => !prev);
+  }
 
   function changeFile(id, file) {
     setFiles((prev) => {
@@ -70,8 +75,9 @@ export const useBall = () => {
     }).then((res) => res.json());
   }
 
-  async function fetchPay() {
+  async function fetchPay(orderId) {
     const options = {
+      cloud_dir_name: orderId,
       amount: '4500.00',
       payment_method_type: 'bank_card',
       confirmation: {
@@ -89,6 +95,7 @@ export const useBall = () => {
     }).then((res) => res.json());
   }
   return {
+    files,
     changeFile,
     sendFiles,
     changeCropped,
@@ -97,5 +104,7 @@ export const useBall = () => {
     number,
     setNumber,
     fetchPay,
+    isRotateConstructor,
+    rotateConstructor,
   };
 };

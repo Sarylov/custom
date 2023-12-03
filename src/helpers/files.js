@@ -13,7 +13,7 @@ export async function TakeScreenshot(name, elementId) {
 }
 
 export const saveImage = () => {
-  const element = document.getElementById('constructor'); // Замените 'yourElementId' на id вашего элемента
+  const element = document.getElementById('constructor');
   html2canvas(element, {
     scale: 12,
   }).then((canvas) => {
@@ -46,13 +46,14 @@ export function getTxtFile(text, fileName = 'textFile.txt') {
 export async function getFileFromBase64(base64) {
   const base64Response = await fetch(`${base64}`);
   const blob = await base64Response.blob();
-  const file = new File([blob], 'mini', { type: 'text/plain' });
+  const file = new File([blob], 'mini.png', { type: 'text/plain' });
   return file;
 }
 
-export const fileToBase64 = file => new Promise((resolve, reject) => {
-  const reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onload = () => resolve(reader.result);
-  reader.onerror = reject;
-});
+export const fileToBase64 = (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+  });

@@ -7,6 +7,9 @@ import { MailInput } from './mail-input';
 export const ContactForm = () => {
   const { sendFiles, fetchPay } = useContext(BallConstructorContext);
   const [isLoadingRequest, setIsLoadingRequest] = useState(false);
+  const [error, setError] = useState('');
+
+  const [isConstructorFullFilled, setIsConstructorFullFill] = useState(false);
 
   const [FIO, setFIO] = useState('');
   const [email, setEmail] = useState('');
@@ -14,41 +17,66 @@ export const ContactForm = () => {
   const [phone, setPhone] = useState('');
   const [isFilledPhone, setIsFilledPhone] = useState(false);
   const [address, setAddress] = useState('');
-  const [error, setError] = useState('');
 
   async function submit() {
+    checkFullFilledForm() && checkFullFilledConstructor() && redirectToPay();
+  }
+
+  function checkFullFilledConstructor() {
+    const interactiveElementsConstructor =
+      document.querySelectorAll('.question-hint');
+    const isEmpty = interactiveElementsConstructor.length === 0;
+    if (isEmpty) {
+      return true;
+    } else {
+      if (isConstructorFullFilled) return true;
+      else {
+        setIsConstructorFullFill(true);
+        return false;
+      }
+    }
+  }
+
+  function checkFullFilledForm() {
     const isAllFilled = FIO && isFilledEmail && isFilledPhone && address;
     if (isAllFilled) {
       setError('');
-      setIsLoadingRequest(true);
-      const screenshot = await getScreenshot('constructor');
-      const userInfo = `ФИО: ${FIO}\nПочта: ${email}\nТелефон: ${phone}\nАдрес: ${address}`;
-      const userInfoFile = getTxtFile(userInfo);
+      return true;
+    } else {
+      setError('Пожалуйста заполните все поля!');
+      return false;
+    }
+  }
 
-      try {
-        const res = await sendFiles(
-          [
-            { name: 'user info', file: userInfoFile },
-            { name: 'result', file: screenshot },
-          ],
-          email
-        );
+  async function redirectToPay() {
+    setError('');
+    setIsConstructorFullFill(false);
+    const screenshot = await getScreenshot('constructor');
+    const userInfo = `ФИО: ${FIO}\nПочта: ${email}\nТелефон: ${phone}\nАдрес: ${address}`;
+    const userInfoFile = getTxtFile(userInfo);
+
+    try {
+      const res = await sendFiles(
+        [
+          { name: 'user info', file: userInfoFile },
+          { name: 'result', file: screenshot },
+        ],
+        email
+      );
 
         if (res.status) {
-          const createPayRes = await fetchPay();
+          const orderId = res.data.cloud_dir_name;
+          const createPayRes = await fetchPay(orderId);
           if (createPayRes.status === 200) {
             window.location.replace(createPayRes.data.confirmation_url);
           } else throw new Error();
         } else throw new Error();
 
-        setIsLoadingRequest(false);
-      } catch (error) {
-        setIsLoadingRequest(false);
-        console.error(error);
-        setError('Произошла, какая то ошибка, повторите попытку позднее');
-      }
-    } else {
-      setError('Пожалуйста заполните все поля!');
+      setIsLoadingRequest(false);
+    } catch (error) {
+      setIsLoadingRequest(false);
+      console.error(error);
+      setError('Произошла, какая то ошибка, повторите попытку позднее');
     }
   }
 
@@ -97,6 +125,11 @@ export const ContactForm = () => {
 
         <span className="divider"></span>
         {error && <p className="text-error text-center mb-2 -mt-4">{error}</p>}
+        {isConstructorFullFilled && (
+          <p className="text-warning text-center mb-2 -mt-4">
+            Не все поля конструктора заполнены! Все равно перейти к оплате?
+          </p>
+        )}
 
         {isLoadingRequest ? (
           <button className="btn">
@@ -105,7 +138,9 @@ export const ContactForm = () => {
           </button>
         ) : (
           <button className="btn btn-primary" onClick={submit}>
-            Перейти к оплате
+            {isConstructorFullFilled
+              ? 'Все равно перейти к оплате'
+              : 'Перейти к оплате'}
           </button>
         )}
       </div>

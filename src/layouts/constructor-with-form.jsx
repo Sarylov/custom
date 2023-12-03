@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { Modal } from '../components/modal';
 import RevertIcon from '../assets/icons/revert.svg?react';
+import { BallConstructorContext } from '../contexts/ball-constructor-context';
 
 // eslint-disable-next-line react/prop-types
 export const ConstructorWithForm = ({ form, constructor }) => {
-  const [isReverte, setIsReverte] = useState(false);
+  const { isRotateConstructor, rotateConstructor } = useContext(
+    BallConstructorContext
+  );
 
   return (
     <div className="w-full h-full flex justify-between">
@@ -13,11 +16,11 @@ export const ConstructorWithForm = ({ form, constructor }) => {
         <div className="flex items-start gap-2 w-full md:justify-between justify-center ">
           <button
             className="btn sticky ml-2 top-[50%] md:block hidden "
-            onClick={() => setIsReverte((prev) => !prev)}
+            onClick={rotateConstructor}
           >
             <RevertIcon className="w-6" />
           </button>
-          <div style={{ rotate: isReverte ? '180deg' : '0deg' }}>
+          <div style={{ rotate: isRotateConstructor ? '180deg' : '0deg' }}>
             {constructor}
           </div>
           <span></span>
@@ -26,7 +29,7 @@ export const ConstructorWithForm = ({ form, constructor }) => {
           <Modal title={'Оформление'} name="Decoration" content={<>{form}</>}>
             <button className="btn btn-primary">Оформить заказ</button>
           </Modal>
-          <button className="btn" onClick={() => setIsReverte((prev) => !prev)}>
+          <button className="btn" onClick={rotateConstructor}>
             <RevertIcon className="w-6" />
           </button>
         </div>
