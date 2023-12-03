@@ -11,11 +11,11 @@ import { Modal } from '../../components/modal';
 import { PrintForm } from '../../components/print-form';
 import { BallConstructorContext } from '../../contexts/ball-constructor-context';
 import { ConstucrotGridImage } from '../../components/constucrot-grid-image';
+import { QuestionHint } from '../../components/question-hint';
 
 export const ConstructorBlackBall = () => {
-  const { fullName, setFullName, number, setNumber } = useContext(
-    BallConstructorContext
-  );
+  const { fullName, setFullName, number, setNumber, isRotateConstructor } =
+    useContext(BallConstructorContext);
   const refComponent = useRef(null);
   const [widthComponent, setWidthComponent] = useState(0);
 
@@ -85,6 +85,7 @@ export const ConstructorBlackBall = () => {
       ref={refComponent}
       className="container max-w-screen-sm mx-auto px-[1%] relative self-start cursor-pointer"
     >
+      {/* Надписи на мяче */}
       <>
         <pre
           className="font-bold w-[98%] text-center absolute z-30 text-white leading-9 uppercase font-custom "
@@ -116,6 +117,15 @@ export const ConstructorBlackBall = () => {
           }}
         />
       </Modal>
+      {/* подсказки */}
+      {(fullName?.trim() === '' || fullName?.trim() === 'Имя фамилия') && (
+        <QuestionHint
+          text="Напишите свое имя и номер"
+          top={3}
+          left={65}
+          isRotateConstructor={isRotateConstructor}
+        />
+      )}
     </div>
   );
 };

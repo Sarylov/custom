@@ -117,7 +117,7 @@ export const SquareCell = ({
               )}
             </NumberListItem>
             <NumberListItem number={3}>
-              <h3>Сохрани макет сектора</h3>
+              <h3>Сохраните макет сектора</h3>
             </NumberListItem>
           </div>
         }
