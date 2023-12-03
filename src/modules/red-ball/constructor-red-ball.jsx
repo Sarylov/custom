@@ -15,14 +15,23 @@ import { Modal } from '../../components/modal';
 import { PrintForm } from '../../components/print-form';
 import playerImage from '../../assets/images/player.png';
 import { ConstucrotGridImage } from '../../components/constucrot-grid-image';
+import { GridHints } from './../../components/grid-hints';
+import { QuestionHint } from '../../components/question-hint';
 
 const WIDTH = '17.6%';
 const HEIGHT = '10.4%';
 
 export const ConstructorRedBall = () => {
-  const { fullName, setFullName, number, setNumber } = useContext(
-    BallConstructorContext
-  );
+  const {
+    fullName,
+    setFullName,
+    number,
+    setNumber,
+    files,
+    changeFile,
+    changeCropped,
+    isRotateConstructor,
+  } = useContext(BallConstructorContext);
   const refComponent = useRef(null);
   const [widthComponent, setWidthComponent] = useState(0);
 
@@ -86,7 +95,6 @@ export const ConstructorRedBall = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const { changeFile, changeCropped } = useContext(BallConstructorContext);
   return (
     <div
       id="constructor"
@@ -259,6 +267,21 @@ export const ConstructorRedBall = () => {
           setWidthComponent(refComponent.current.offsetWidth);
         }}
       />
+      {/* подсказки */}
+      <GridHints
+        isRotateConstructor={isRotateConstructor}
+        cellIds={[9, 13, 12, 16, 25, 29, 28, 31, '6_7_8', '22_23_24'].filter(
+          (cellId) => !files[cellId]
+        )}
+      />
+      {(fullName?.trim() === '' || fullName?.trim() === 'Имя фамилия') && (
+        <QuestionHint
+          text="Напишите свое имя и номер"
+          top={3}
+          left={65}
+          isRotateConstructor={isRotateConstructor}
+        />
+      )}
     </div>
   );
 };
