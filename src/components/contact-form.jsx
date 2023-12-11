@@ -51,6 +51,7 @@ export const ContactForm = () => {
   async function redirectToPay() {
     setError('');
     setIsConstructorFullFill(false);
+    setIsLoadingRequest(true);
     const screenshot = await getScreenshot('constructor');
     const userInfo = `ФИО: ${FIO}\nПочта: ${email}\nТелефон: ${phone}\nАдрес: ${address}`;
     const userInfoFile = getTxtFile(userInfo);
@@ -64,13 +65,13 @@ export const ContactForm = () => {
         email
       );
 
-        if (res.status) {
-          const orderId = res.data.cloud_dir_name;
-          const createPayRes = await fetchPay(orderId);
-          if (createPayRes.status === 200) {
-            window.location.replace(createPayRes.data.confirmation_url);
-          } else throw new Error();
+      if (res.status) {
+        const orderId = res.data.cloud_dir_name;
+        const createPayRes = await fetchPay(orderId);
+        if (createPayRes.status === 200) {
+          window.location.replace(createPayRes.data.confirmation_url);
         } else throw new Error();
+      } else throw new Error();
 
       setIsLoadingRequest(false);
     } catch (error) {
