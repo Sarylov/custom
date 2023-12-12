@@ -8,26 +8,31 @@ import {
 import grid from '../../assets/images/grids/black-grid.png';
 import gridMin from '../../assets/images/grids/black-grid_mobile.png';
 import { Modal } from '../../components/modal';
-import { PrintForm } from '../../components/print-form';
-import { BallConstructorContext } from '../../contexts/ball-constructor-context';
-import { ConstucrotGridImage } from '../../components/constucrot-grid-image';
-import { QuestionHint } from '../../components/question-hint';
+import { PrintForm } from './components/print-form';
+import { ConstucrotGridImage } from './components/constucrot-grid-image';
+import { QuestionHint } from './components/question-hint';
+import { ConstructorContext } from './constructor-provider';
 
 export const ConstructorBlackBall = () => {
-  const { fullName, setFullName, number, setNumber, isRotateConstructor } =
-    useContext(BallConstructorContext);
+  const {
+    namePlayer,
+    setNamePlayer,
+    numberPlayer,
+    setNumberPlayer,
+    isRotateConstructor,
+  } = useContext(ConstructorContext);
   const refComponent = useRef(null);
   const [widthComponent, setWidthComponent] = useState(0);
 
   useEffect(() => {
-    setFullName('Имя фамилия');
-    setNumber(0);
+    setNamePlayer('Имя фамилия');
+    setNumberPlayer(0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const numberStyles =
-    number !== undefined
-      ? String(number)?.length > 1
+    numberPlayer !== undefined
+      ? String(numberPlayer)?.length > 1
         ? {
             fontSize: (widthComponent / 100) * 12,
             top: '11.5%',
@@ -38,7 +43,7 @@ export const ConstructorBlackBall = () => {
           }
       : {};
 
-  const nameParts = fullName?.trim()?.split(' ');
+  const nameParts = namePlayer?.trim()?.split(' ');
   const nameLen = nameParts?.length;
   const maxLenPart = nameParts?.reduce(
     (max, part) => (max < part?.length ? part?.length : max),
@@ -51,7 +56,7 @@ export const ConstructorBlackBall = () => {
       ? defaultSize
       : defaultSize - maxLenPart * reduceBy);
 
-  const nameStyles = fullName
+  const nameStyles = namePlayer
     ? (nameLen === 1 && {
         fontSize: getWidth(6, 8, 0.3),
         top: '4.8%',
@@ -91,13 +96,13 @@ export const ConstructorBlackBall = () => {
           className="font-bold w-[98%] text-center absolute z-30 text-white leading-9 uppercase font-custom "
           style={{ ...nameStyles, pointerEvents: 'none' }}
         >
-          {fullName && fullName.trim().split(' ').join('\n')}
+          {namePlayer && namePlayer.trim().split(' ').join('\n')}
         </pre>
         <p
           className="font-bold w-[98%] text-center absolute z-30 text-white font-custom"
           style={{ ...numberStyles, pointerEvents: 'none' }}
         >
-          {number !== undefined && number}
+          {numberPlayer !== undefined && numberPlayer}
         </p>
       </>
 
@@ -106,7 +111,14 @@ export const ConstructorBlackBall = () => {
         name={'black-ball'}
         closeButtonContent="Ввести данные"
         content={
-          <PrintForm state={{ fullName, setFullName, number, setNumber }} />
+          <PrintForm
+            state={{
+              fullName: namePlayer,
+              setFullName: setNamePlayer,
+              number: numberPlayer,
+              setNumber: setNumberPlayer,
+            }}
+          />
         }
       >
         <ConstucrotGridImage
@@ -118,7 +130,7 @@ export const ConstructorBlackBall = () => {
         />
       </Modal>
       {/* подсказки */}
-      {(fullName?.trim() === '' || fullName?.trim() === 'Имя фамилия') && (
+      {(namePlayer?.trim() === '' || namePlayer?.trim() === 'Имя фамилия') && (
         <QuestionHint
           text="Напишите свое имя и номер"
           top={3}

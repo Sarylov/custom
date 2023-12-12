@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import { fileToBase64 } from '../helpers/files';
 import imageCompression from 'browser-image-compression';
-import { CropperImage } from './cropper-image';
-import { Modal } from './modal';
-import { NumberListItem } from './number-list-item';
+
+import { fileToBase64 } from '../../../helpers/files';
+import { CropperImage } from '../../../components/cropper-image';
+import { Modal } from '../../../components/modal';
+import { NumberListItem } from '../../../components/number-list-item';
 
 export const SquareCell = ({
   id,

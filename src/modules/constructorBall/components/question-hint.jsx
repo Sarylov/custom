@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import QuestionIcon from '../assets/icons/question.svg?react';
-import { Hint } from './hint';
+import QuestionIcon from '../../../assets/icons/question.svg?react';
+import { Hint } from '../../../components/hint';
 
 export const QuestionHint = ({
   text = 'Интерактивный элемент',

@@ -9,41 +9,42 @@ import RedBallGrid from '../../assets/images/grids/red-grid.png';
 import RedBallGridMin from '../../assets/images/grids/red-grid_mobile.png';
 import Background from '../../assets/images/grids/red-grid_black.png';
 import BackgroundMin from '../../assets/images/grids/red-grid_black_mobile.png';
-import { BallConstructorContext } from '../../contexts/ball-constructor-context';
-import { SquareCell } from '../../components/square-cell';
-import { Modal } from '../../components/modal';
-import { PrintForm } from '../../components/print-form';
 import playerImage from '../../assets/images/player.png';
-import { ConstucrotGridImage } from '../../components/constucrot-grid-image';
-import { GridHints } from '../../components/grid-hints';
-import { QuestionHint } from '../../components/question-hint';
+import { Modal } from '../../components/modal';
+
+import { SquareCell } from './components/square-cell';
+import { PrintForm } from './components/print-form';
+import { ConstucrotGridImage } from './components/constucrot-grid-image';
+import { GridHints } from './components/grid-hints';
+import { QuestionHint } from './components/question-hint';
+import { ConstructorContext } from './constructor-provider';
 
 const WIDTH = '17.6%';
 const HEIGHT = '10.4%';
 
 export const ConstructorRedBall = () => {
   const {
-    fullName,
-    setFullName,
-    number,
-    setNumber,
+    namePlayer,
+    setNamePlayer,
+    numberPlayer,
+    setNumberPlayer,
     files,
     changeFile,
     changeCropped,
     isRotateConstructor,
-  } = useContext(BallConstructorContext);
+  } = useContext(ConstructorContext);
   const refComponent = useRef(null);
   const [widthComponent, setWidthComponent] = useState(0);
 
   useEffect(() => {
-    setFullName('Имя фамилия');
-    setNumber(0);
+    setNamePlayer('Имя фамилия');
+    setNumberPlayer(0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const numberStyles =
-    number !== undefined
-      ? String(number)?.length > 1
+    numberPlayer !== undefined
+      ? String(numberPlayer)?.length > 1
         ? {
             fontSize: (widthComponent / 100) * 12,
             top: '11.5%',
@@ -54,7 +55,7 @@ export const ConstructorRedBall = () => {
           }
       : {};
 
-  const nameParts = fullName?.trim()?.split(' ');
+  const nameParts = namePlayer?.trim()?.split(' ');
   const nameLen = nameParts?.length;
   const maxLenPart = nameParts?.reduce(
     (max, part) => (max < part?.length ? part?.length : max),
@@ -67,7 +68,7 @@ export const ConstructorRedBall = () => {
       ? defaultSize
       : defaultSize - maxLenPart * reduceBy);
 
-  const nameStyles = fullName
+  const nameStyles = namePlayer
     ? (nameLen === 1 && {
         fontSize: getWidth(6, 8, 0.3),
         top: '4.8%',
@@ -193,20 +194,27 @@ export const ConstructorRedBall = () => {
           className="font-bold w-[98%] text-center absolute z-30 text-white leading-9 uppercase font-custom stroke"
           style={nameStyles}
         >
-          {fullName && fullName.trim().split(' ').join('\n')}
+          {namePlayer && namePlayer.trim().split(' ').join('\n')}
         </pre>
         <p
           className="font-bold  text-center absolute z-30 text-white font-custom inline-block left-[50%] -translate-x-[50%] stroke"
           style={numberStyles}
         >
-          {number !== undefined && number}
+          {numberPlayer !== undefined && numberPlayer}
         </p>
         <Modal
           title="Введите данные"
           closeButtonContent="Ввести данные"
           name={'black-ball'}
           content={
-            <PrintForm state={{ fullName, setFullName, number, setNumber }} />
+            <PrintForm
+              state={{
+                fullName: namePlayer,
+                setFullName: setNamePlayer,
+                number: numberPlayer,
+                setNumber: setNumberPlayer,
+              }}
+            />
           }
         >
           <div
@@ -274,7 +282,7 @@ export const ConstructorRedBall = () => {
           (cellId) => !files[cellId]
         )}
       />
-      {(fullName?.trim() === '' || fullName?.trim() === 'Имя фамилия') && (
+      {(namePlayer?.trim() === '' || namePlayer?.trim() === 'Имя фамилия') && (
         <QuestionHint
           text="Напишите свое имя и номер"
           top={3}

@@ -1,18 +1,18 @@
 import { useContext } from 'react';
 import whiteballGrid from '../../assets/images/grids/white-grid.png';
 import whiteballGridMin from '../../assets/images/grids/white-grid_mobile.png';
-import { BallConstructorContext } from '../../contexts/ball-constructor-context';
-import { SquareCell } from '../../components/square-cell';
-import { ConstucrotGridImage } from '../../components/constucrot-grid-image';
-import { GridHints } from '../../components/grid-hints';
+
+import { SquareCell } from './components/square-cell';
+import { ConstucrotGridImage } from './components/constucrot-grid-image';
+import { GridHints } from './components/grid-hints';
+import { ConstructorContext } from './constructor-provider';
 
 const WIDTH = '17.6%';
 const HEIGHT = '10.4%';
 
 export const ConstructorWhiteBall = () => {
-  const { changeFile, changeCropped, isRotateConstructor, files } = useContext(
-    BallConstructorContext
-  );
+  const { changeFile, changeCropped, isRotateConstructor, files } =
+    useContext(ConstructorContext);
   return (
     <div
       id="constructor"
