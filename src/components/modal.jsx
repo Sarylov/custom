@@ -16,9 +16,9 @@ export const Modal = ({
       <div onClick={showModal}>{children}</div>
       <dialog id={name} className="modal">
         <div className={`modal-box ${className}`}>
+          <h3 className="font-bold text-lg">{title}</h3>
+          {content}
           <form method="dialog">
-            <h3 className="font-bold text-lg">{title}</h3>
-            {content}
             {closeButton ? (
               closeButton
             ) : (
