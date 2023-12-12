@@ -1,1 +1,1 @@
-export { ConstructorWhiteball } from './constructor-white-ball';
+export { ConstructorWhiteBall as ConstructorWhiteball } from '../constructorBall/constructor-white-ball';

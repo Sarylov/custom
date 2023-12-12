@@ -9,7 +9,7 @@ import { GridHints } from '../../components/grid-hints';
 const WIDTH = '17.6%';
 const HEIGHT = '10.4%';
 
-export const ConstructorWhiteball = () => {
+export const ConstructorWhiteBall = () => {
   const { changeFile, changeCropped, isRotateConstructor, files } = useContext(
     BallConstructorContext
   );
@@ -201,9 +201,9 @@ export const ConstructorWhiteball = () => {
       {/* подсказки */}
       <GridHints
         isRotateConstructor={isRotateConstructor}
-        cellIds={[2, 3, 9, 6,7,13, 11, 12,15, 16, 25, 23, 29, 28, 31, 27,32].filter(
-          (cellId) => !files[cellId]
-        )}
+        cellIds={[
+          2, 3, 9, 6, 7, 13, 11, 12, 15, 16, 25, 23, 29, 28, 31, 27, 32,
+        ].filter((cellId) => !files[cellId])}
       />
     </div>
   );

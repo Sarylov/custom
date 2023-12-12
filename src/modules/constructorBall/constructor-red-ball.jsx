@@ -15,7 +15,7 @@ import { Modal } from '../../components/modal';
 import { PrintForm } from '../../components/print-form';
 import playerImage from '../../assets/images/player.png';
 import { ConstucrotGridImage } from '../../components/constucrot-grid-image';
-import { GridHints } from './../../components/grid-hints';
+import { GridHints } from '../../components/grid-hints';
 import { QuestionHint } from '../../components/question-hint';
 
 const WIDTH = '17.6%';
