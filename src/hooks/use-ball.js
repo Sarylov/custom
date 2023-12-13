@@ -64,7 +64,7 @@ export const useBall = () => {
 
     if (number || fullName) {
       const nameAndNumber = `Имя игрока (надпись на мяче): ${fullName}\nНомер игрока: ${number}`;
-      const nameAndNumberFile = getTxtFile(nameAndNumber, 'nameAndNumber');
+      const nameAndNumberFile = getTxtFile(nameAndNumber, 'nameAndNumber.txt');
 
       formData.append('2_3_5', nameAndNumberFile);
     }
