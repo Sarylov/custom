@@ -5,9 +5,9 @@ export const Modal = ({ children, title, content, name, closeButton }) => {
       <div onClick={() => window[name].showModal()}>{children}</div>
       <dialog id={name} className="modal">
         <div className="modal-box">
+          <h3 className="font-bold text-lg">{title}</h3>
+          {content}
           <form method="dialog">
-            <h3 className="font-bold text-lg">{title}</h3>
-            {content}
             {closeButton ? (
               closeButton
             ) : (
