@@ -3,8 +3,11 @@ import { getScreenshot, getTxtFile } from '../helpers/files';
 import { BallConstructorContext } from '../contexts/ball-constructor-context';
 import { PhoneInput } from './phone-input';
 import { MailInput } from './mail-input';
+import { DeliveryContext } from '../modules/delivery';
 
 export const ContactForm = () => {
+  const { openWidgetCdek, closeWidgetCdek } = useContext(DeliveryContext);
+
   const { sendFiles, fetchPay } = useContext(BallConstructorContext);
   const [isLoadingRequest, setIsLoadingRequest] = useState(false);
   const [error, setError] = useState('');
@@ -18,7 +21,19 @@ export const ContactForm = () => {
   const [isFilledPhone, setIsFilledPhone] = useState(false);
   const [address, setAddress] = useState('');
 
-  async function submit() {
+  function chooseAddress() {
+    window.widget.params.onChoose = (...data) => {
+      const info = data[2];
+      const selectedAddress = `${info?.country_code}, ${info?.city}, ${info?.address}, ${info?.name}, ${info?.type}`;
+      setAddress(selectedAddress);
+      closeWidgetCdek();
+    };
+    window['Decoration'].close();
+    openWidgetCdek();
+  }
+
+  async function submit(event) {
+    event.preventDefault();
     checkFullFilledForm() && checkFullFilledConstructor() && redirectToPay();
   }
 
@@ -62,7 +77,12 @@ export const ContactForm = () => {
           { name: 'user info', file: userInfoFile },
           { name: 'result', file: screenshot },
         ],
-        email
+        {
+          FIO,
+          email,
+          phone,
+          address,
+        }
       );
 
       if (res.status) {
@@ -82,7 +102,10 @@ export const ContactForm = () => {
   }
 
   return (
-    <div className="form flex flex-col justify-center items-center">
+    <form
+      onSubmit={submit}
+      className="form flex flex-col justify-center items-center"
+    >
       <div className="form-control w-full max-w-xs">
         <label className="label">
           <span className="label-text">Фамилия имя отчество</span>
@@ -114,37 +137,58 @@ export const ContactForm = () => {
         />
 
         <label className="label">
-          <span className="label-text">Адрес</span>
+          <span className="label-text">Адрес доставки</span>
         </label>
         <input
           type="text"
           value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          placeholder="г. Москва ул. Пушкина дом 42"
+          readOnly
+          placeholder="Не выбран"
           className="input input-bordered w-full max-w-xs no-arrows"
         />
 
+        <button
+          type="button"
+          className="btn btn-sm mt-1"
+          onClick={chooseAddress}
+        >
+          выбрать {address ? 'другой' : ''} адрес доставки
+        </button>
+
         <span className="divider"></span>
-        {error && <p className="text-error text-center mb-2 -mt-4">{error}</p>}
+
+        <div className="text-sm">
+          <div className="flex justify-between">
+            <span>Стоймость доставки</span> <span>500 руб.</span>
+          </div>
+          <div className="flex justify-between">
+            <span>Стоймость мяча</span> <span>4000 руб.</span>
+          </div>
+          <div className="flex justify-between mb-4">
+            <span>Общая стоймость</span> <span>4500 руб.</span>
+          </div>
+        </div>
+
+        {error && <p className="text-error text-center mb-2 ">{error}</p>}
         {isConstructorFullFilled && (
-          <p className="text-warning text-center mb-2 -mt-4">
+          <p className="text-warning text-center mb-2 ">
             Не все поля конструктора заполнены! Все равно перейти к оплате?
           </p>
         )}
 
         {isLoadingRequest ? (
-          <button className="btn">
+          <button type="button" className="btn">
             <span className="loading loading-spinner"></span>
             загрузка
           </button>
         ) : (
-          <button className="btn btn-primary" onClick={submit}>
+          <button type="submit" className="btn btn-primary">
             {isConstructorFullFilled
               ? 'Все равно перейти к оплате'
               : 'Перейти к оплате'}
           </button>
         )}
       </div>
-    </div>
+    </form>
   );
 };

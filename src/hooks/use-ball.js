@@ -40,7 +40,7 @@ export const useBall = () => {
     return croppedValues;
   }
 
-  async function sendFiles(propfiles, email) {
+  async function sendFiles(propfiles, userInfo) {
     const filesValues = Object.values(files);
     const croppedValues = await getCroppedFiles();
 
@@ -60,7 +60,10 @@ export const useBall = () => {
       });
     }
 
-    formData.append('email', email);
+    formData.append('full_name', userInfo.FIO);
+    formData.append('email', userInfo.email);
+    formData.append('phone', userInfo.phone);
+    formData.append('address', userInfo.address);
 
     if (number || fullName) {
       const nameAndNumber = `Имя игрока (надпись на мяче): ${fullName}\nНомер игрока: ${number}`;
