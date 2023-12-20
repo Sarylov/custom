@@ -1,4 +1,5 @@
-import html2canvas from 'html2canvas';
+// import html2canvas from 'html2canvas';
+import html2canvas from '@wtto00/html2canvas';
 
 export async function TakeScreenshot(name, elementId) {
   const element = document.getElementById(elementId);
@@ -14,9 +15,7 @@ export async function TakeScreenshot(name, elementId) {
 
 export const saveImage = () => {
   const element = document.getElementById('constructor');
-  html2canvas(element, {
-    scale: 12,
-  }).then((canvas) => {
+  html2canvas(element).then((canvas) => {
     const dataUrl = canvas.toDataURL();
     const link = document.createElement('a');
 
