@@ -676,6 +676,14 @@
     "@types/babel__core" "^7.20.2"
     react-refresh "^0.14.0"
 
+"@wtto00/html2canvas@^1.4.3":
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@wtto00/html2canvas/-/html2canvas-1.4.3.tgz#2f788f26d4be7c0b53900557f5b9090fa06a37a8"
+  integrity sha512-jwsb+xL8N+gjrSNABSaFdxmWtE4c7RNFjP20lo1G7gs63Qqo1phhxVBTzxc/apDVh6LgXsU2l5bwKtXd9uz65w==
+  dependencies:
+    css-line-break "^2.1.0"
+    text-segmentation "^1.0.3"
+
 acorn-jsx@^5.3.2:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"
@@ -1620,14 +1628,6 @@ has@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/has/-/has-1.0.4.tgz#2eb2860e000011dae4f1406a86fe80e530fb2ec6"
   integrity sha512-qdSAmqLF6209RFj4VVItywPMbm3vWylknmB3nvNiUIs72xAimcM8nVYxYr7ncvZq5qzk9MKIZR8ijqD/1QuYjQ==
-
-html2canvas@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/html2canvas/-/html2canvas-1.4.1.tgz#7cef1888311b5011d507794a066041b14669a543"
-  integrity sha512-fPU6BHNpsyIhr8yyMpTLLxAbkaK8ArIBcmZIRiBLiDhjeqvXolaEmDGmELFuX9I4xDcaKKcJl+TKZLqruBbmWA==
-  dependencies:
-    css-line-break "^2.1.0"
-    text-segmentation "^1.0.3"
 
 ignore@^5.2.0:
   version "5.2.4"
