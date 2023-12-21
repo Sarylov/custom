@@ -1,21 +1,11 @@
 // import html2canvas from 'html2canvas';
 import html2canvas from '@wtto00/html2canvas';
 
-export async function TakeScreenshot(name, elementId) {
-  const element = document.getElementById(elementId);
-  const snapshot = await html2canvas(element);
-
-  const dataUrl = snapshot.toDataURL();
-  const link = document.createElement('a');
-
-  link.download = name + 'image.png';
-  link.href = dataUrl;
-  link.click();
-}
-
 export const saveImage = () => {
-  const element = document.getElementById('constructor');
-  html2canvas(element).then((canvas) => {
+  html2canvas(document.getElementById('constructor'), {
+    scale: 2,
+    windowWidth: 1280,
+  }).then((canvas) => {
     const dataUrl = canvas.toDataURL();
     const link = document.createElement('a');
 
@@ -27,7 +17,10 @@ export const saveImage = () => {
 
 export async function getScreenshot(elementId) {
   const element = document.getElementById(elementId);
-  const canvas = await html2canvas(element);
+  const canvas = await html2canvas(element, {
+    scale: 2,
+    windowWidth: 1280,
+  });
   const file = await new Promise((resolve) => {
     canvas.toBlob((blob) => {
       resolve(new File([blob], 'result.png'));
