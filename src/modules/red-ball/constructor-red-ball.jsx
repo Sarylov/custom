@@ -70,17 +70,12 @@ export const ConstructorRedBall = () => {
   const nameStyles = fullName
     ? (nameLen === 1 && {
         fontSize: getWidth(6, 8, 0.3),
-        top: '4.8%',
       }) ||
       (nameLen === 2 && {
         fontSize: getWidth(8, 7, 0.24),
-        top: `${maxLenPart < 8 ? 4 : 4 + maxLenPart * 0.08}%`,
-        lineHeight: '82%',
       }) ||
       (nameLen === 3 && {
         fontSize: getWidth(13, 4, 0.07),
-        top: `${maxLenPart < 13 ? 4.3 : 4.3 + maxLenPart * 0.03}%`,
-        lineHeight: '82%',
       })
     : {};
 
@@ -189,18 +184,6 @@ export const ConstructorRedBall = () => {
       </>
       {/* надписи */}
       <>
-<pre
-          className="font-bold w-[98%] text-center absolute z-30 text-white leading-9 uppercase font-custom stroke"
-          style={nameStyles}
-        >
-          {fullName && fullName.trim().split(' ').join('\n')}
-        </pre>
-        <p
-          className="font-bold  text-center absolute z-30 text-white font-custom inline-block left-[50%] -translate-x-[50%] stroke"
-          style={numberStyles}
-        >
-          {number !== undefined && number}
-        </p>
         <Modal
           title="Введите данные"
           closeButtonContent="Ввести данные"
@@ -209,10 +192,22 @@ export const ConstructorRedBall = () => {
             <PrintForm state={{ fullName, setFullName, number, setNumber }} />
           }
         >
-          <div
-            className="absolute left-1/2 w-[40%] -top-[3.5%] z-[30]  -translate-x-[50%] cursor-pointer rotate-45 flex justify-center"
-            style={{ height: '20%' }}
-          ></div>
+          <div className="absolute left-1/2 -translate-x-[50%] z-[30] w-[38%] h-[7%] top-[3%] flex justify-center items-center cursor-pointer">
+            <pre
+              className=" font-bold text-white uppercase font-custom stroke leading-[.8em] text-[2em] text-center"
+              style={nameStyles}
+            >
+              {fullName && fullName.trim().split(' ').join('\n')}
+            </pre>
+          </div>
+          <div className="absolute left-1/2 -translate-x-[50%] z-[30] top-[12.5%] w-[17%] h-[8%] flex justify-center items-center cursor-pointer">
+            <p
+              className="font-bold text-center text-white font-custom inline-block stroke"
+              style={numberStyles}
+            >
+              {number !== undefined && number}
+            </p>
+          </div>
         </Modal>
       </>
 
