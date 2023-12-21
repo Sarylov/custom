@@ -105,7 +105,7 @@ export const SquareCell = ({
               )}
             </NumberListItem>
             {step === 2 && (
-              <div className={`w-[300px] mx-auto sm:w-[400px] h-[50vh]`}>
+              <div className={`w-[300px] mx-auto h-[40vh]`}>
                 <CropperImage
                   setCroppedimage={(cropped) => {
                     changeCropped(id, cropped);
