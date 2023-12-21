@@ -18,8 +18,8 @@ import { ConstucrotGridImage } from '../../components/constucrot-grid-image';
 import { GridHints } from './../../components/grid-hints';
 import { QuestionHint } from '../../components/question-hint';
 
-const WIDTH = '17.6%';
-const HEIGHT = '10.4%';
+const WIDTH = '19%';
+const HEIGHT = '10.7%';
 
 export const ConstructorRedBall = () => {
   const {
@@ -99,7 +99,7 @@ export const ConstructorRedBall = () => {
     <div
       id="constructor"
       ref={refComponent}
-      className="container max-w-screen-sm mx-auto px-[1%] relative self-start"
+      className="mx-auto w-[300px] sm:w-[500px] md:w-[300px] lg:w-[400px] xl:w-[500px] relative self-start"
     >
       {/* редактируемые прямоугольники */}
       <>
@@ -107,7 +107,7 @@ export const ConstructorRedBall = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[16.9%] left-[16.7%] rotate-[12.3deg]"
+          className="absolute top-[16.65%] left-[15.4%] rotate-[12.3deg]"
           width={WIDTH}
           height={HEIGHT}
           preview={1}
@@ -118,7 +118,7 @@ export const ConstructorRedBall = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[16.9%] right-[16.7%] -rotate-[12.3deg]"
+          className="absolute top-[16.65%] right-[15.4%] -rotate-[12.3deg]"
           width={WIDTH}
           height={HEIGHT}
           preview={2}
@@ -128,7 +128,7 @@ export const ConstructorRedBall = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[34.8%] left-[16.7%] -rotate-[12.3deg]"
+          className="absolute top-[34.67%] left-[15.5%] -rotate-[12.3deg]"
           width={WIDTH}
           height={HEIGHT}
           preview={3}
@@ -138,7 +138,7 @@ export const ConstructorRedBall = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[34.8%] right-[16.6%] rotate-[12.3deg]"
+          className="absolute top-[34.67%] right-[15.5%] rotate-[12.3deg]"
           width={WIDTH}
           height={HEIGHT}
           preview={4}
@@ -149,7 +149,7 @@ export const ConstructorRedBall = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[65.3%] left-[16.7%] rotate-[192.3deg]"
+          className="absolute top-[65.15%] left-[15.4%] rotate-[192.3deg]"
           width={WIDTH}
           height={HEIGHT}
           preview={5}
@@ -160,7 +160,7 @@ export const ConstructorRedBall = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[65.3%] right-[16.6%] -rotate-[192.3deg]"
+          className="absolute top-[65.15%] right-[15.4%] -rotate-[192.3deg]"
           width={WIDTH}
           height={HEIGHT}
           preview={6}
@@ -170,7 +170,7 @@ export const ConstructorRedBall = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[83.3%] left-[16.7%] -rotate-[192.3deg]"
+          className="absolute top-[83%] left-[15.5%] -rotate-[192.3deg]"
           width={WIDTH}
           height={HEIGHT}
           preview={7}
@@ -180,7 +180,7 @@ export const ConstructorRedBall = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[83.3%] right-[16.7%] rotate-[192.3deg]"
+          className="absolute top-[83%] right-[15.5%] rotate-[192.3deg]"
           width={WIDTH}
           height={HEIGHT}
           preview={8}
@@ -189,7 +189,7 @@ export const ConstructorRedBall = () => {
       </>
       {/* надписи */}
       <>
-        <pre
+<pre
           className="font-bold w-[98%] text-center absolute z-30 text-white leading-9 uppercase font-custom stroke"
           style={nameStyles}
         >
@@ -219,7 +219,7 @@ export const ConstructorRedBall = () => {
       <ConstucrotGridImage
         largeImagePath={Background}
         minImagePath={BackgroundMin}
-        className="w-full grid-ball left-0 top-0 px-[1%] absolute z-30"
+        className="w-full grid-ball left-0 top-0 absolute z-30"
       />
       {/* фото на несколько ячеек */}
       <SquareCell
