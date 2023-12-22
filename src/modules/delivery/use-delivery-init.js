@@ -1,6 +1,9 @@
 import './libs/cdek-widget.umd';
 import { useEffect } from 'react';
 
+const VITE_URL_CDEK = import.meta.env.VITE_URL_CDEK;
+const VITE_YANDEX_MAP_KEY = import.meta.env.VITE_YANDEX_MAP_KEY;
+
 export const useDeliveryInit = () => {
   useEffect(() => {
     window.widget = new window.CDEKWidget({
@@ -10,8 +13,8 @@ export const useDeliveryInit = () => {
         address: 'ул. Большевистская, д. 101',
       },
       root: 'cdek-map',
-      apiKey: 'e499a9fc-683d-42f4-9e36-5d1cdde7b607',
-      servicePath: 'http://172.21.58.133/service.php',
+      apiKey: VITE_YANDEX_MAP_KEY,
+      servicePath: VITE_URL_CDEK,
       hideDeliveryOptions: {
         door: true,
       },
