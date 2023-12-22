@@ -6,6 +6,12 @@ export const saveImage = () => {
     scale: 2,
     windowWidth: 1280,
     backgroundColor: null,
+    onclone: (documentClone) => {
+      const hints = documentClone.querySelectorAll('.question-hint');
+      hints.forEach((hint) => {
+        hint.remove();
+      });
+    },
   }).then((canvas) => {
     const dataUrl = canvas.toDataURL();
     const link = document.createElement('a');
@@ -22,6 +28,12 @@ export async function getScreenshot(elementId) {
     scale: 2,
     windowWidth: 1280,
     backgroundColor: null,
+    onclone: (documentClone) => {
+      const hints = documentClone.querySelectorAll('.question-hint');
+      hints.forEach((hint) => {
+        hint.remove();
+      });
+    },
   });
   const file = await new Promise((resolve) => {
     canvas.toBlob((blob) => {
