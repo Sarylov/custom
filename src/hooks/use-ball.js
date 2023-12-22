@@ -81,7 +81,7 @@ export const useBall = () => {
   async function fetchPay(orderId) {
     const options = {
       cloud_dir_name: orderId,
-      amount: '4500.00',
+      amount: '5000.00',
       payment_method_type: 'bank_card',
       confirmation: {
         type: 'redirect',

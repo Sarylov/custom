@@ -162,10 +162,10 @@ export const ContactForm = () => {
             <span>Стоймость доставки</span> <span>500 руб.</span>
           </div>
           <div className="flex justify-between">
-            <span>Стоймость мяча</span> <span>4000 руб.</span>
+            <span>Стоймость мяча</span> <span>4500 руб.</span>
           </div>
           <div className="flex justify-between mb-4">
-            <span>Общая стоймость</span> <span>4500 руб.</span>
+            <span>Общая стоймость</span> <span>5000 руб.</span>
           </div>
         </div>
 
