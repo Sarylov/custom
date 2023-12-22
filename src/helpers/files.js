@@ -5,6 +5,7 @@ export const saveImage = () => {
   html2canvas(document.getElementById('constructor'), {
     scale: 2,
     windowWidth: 1280,
+    backgroundColor: null,
   }).then((canvas) => {
     const dataUrl = canvas.toDataURL();
     const link = document.createElement('a');
@@ -20,6 +21,7 @@ export async function getScreenshot(elementId) {
   const canvas = await html2canvas(element, {
     scale: 2,
     windowWidth: 1280,
+    backgroundColor: null,
   });
   const file = await new Promise((resolve) => {
     canvas.toBlob((blob) => {
