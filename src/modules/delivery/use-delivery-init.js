@@ -1,4 +1,3 @@
-import './libs/cdek-widget.umd';
 import { useEffect } from 'react';
 
 const VITE_URL_CDEK = import.meta.env.VITE_URL_CDEK;
