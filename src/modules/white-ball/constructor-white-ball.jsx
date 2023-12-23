@@ -54,9 +54,9 @@ export const ConstructorWhiteball = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[16.65%] left-[15.4%] rotate-[12.3deg]"
-          width={WIDTH}
-          height={HEIGHT}
+          className="absolute top-[17.1%] left-[14.4%] -rotate-[25deg]"
+          width={'21.3%'}
+          height={'9.7%'}
           preview={3}
           id={9}
         />
@@ -84,9 +84,9 @@ export const ConstructorWhiteball = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[16.65%] right-[15.4%] -rotate-[12.3deg]"
-          width={WIDTH}
-          height={HEIGHT}
+          className="absolute top-[17.1%] right-[14.4%] rotate-[12.3deg]"
+          width={'21.3%'}
+          height={'9.7%'}
           preview={5}
           id={13}
         />
@@ -94,9 +94,9 @@ export const ConstructorWhiteball = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[34.67%] left-[15.5%] -rotate-[12.3deg]"
-          width={WIDTH}
-          height={HEIGHT}
+          className="absolute top-[35.12%] left-[14.4%] rotate-[25deg]"
+          width={'21.3%'}
+          height={'9.7%'}
           preview={8}
           id={12}
         />
@@ -114,9 +114,9 @@ export const ConstructorWhiteball = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[34.67%] right-[15.5%] rotate-[12.3deg]"
-          width={WIDTH}
-          height={HEIGHT}
+          className="absolute top-[35.12%] right-[14.4%] -rotate-[25deg]"
+          width={'21.3%'}
+          height={'9.7%'}
           preview={10}
           id={16}
         />
@@ -135,9 +135,9 @@ export const ConstructorWhiteball = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[65.15%] left-[15.4%] rotate-[192.3deg]"
-          width={WIDTH}
-          height={HEIGHT}
+          className="absolute top-[65.55%] left-[14.4%] -rotate-[205deg]"
+          width={'21.3%'}
+          height={'9.7%'}
           preview={11}
           id={25}
         />
@@ -155,9 +155,9 @@ export const ConstructorWhiteball = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[65.15%] right-[15.4%] -rotate-[192.3deg]"
-          width={WIDTH}
-          height={HEIGHT}
+          className="absolute top-[65.55%] right-[14.4%] rotate-[205deg]"
+          width={'21.3%'}
+          height={'9.7%'}
           preview={12}
           id={29}
         />
@@ -165,9 +165,9 @@ export const ConstructorWhiteball = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[83%] left-[15.5%] -rotate-[192.3deg]"
-          width={WIDTH}
-          height={HEIGHT}
+          className="absolute top-[83.5%] left-[14.4%] rotate-[205deg]"
+          width={'21.3%'}
+          height={'9.7%'}
           preview={15}
           id={28}
         />
@@ -185,14 +185,15 @@ export const ConstructorWhiteball = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[83%] right-[15.5%] rotate-[192.3deg]"
-          width={WIDTH}
-          height={HEIGHT}
+          className="absolute top-[83.5%] right-[14.4%] -rotate-[205deg]"
+          width={'21.3%'}
+          height={'9.7%'}
           preview={17}
           id={31}
         />
       </>
 
+      {/* сетка */}
       <ConstucrotGridImage
         largeImagePath={whiteballGrid}
         minImagePath={whiteballGridMin}
