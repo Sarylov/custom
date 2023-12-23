@@ -101,21 +101,21 @@ export const SquareCell = ({
                 Скадрируйте фотографию
               </h3>
               {step === 2 && (
-                <>
-                  <p>После кадрирования фотография будет обрезана</p>
-                  <div className={`w-full h-[50vh]`}>
-                    <CropperImage
-                      setCroppedimage={(cropped) => {
-                        changeCropped(id, cropped);
-                        setCroppedimage(cropped);
-                      }}
-                      aspect={cropAspect}
-                      imageSrc={imageSrc}
-                    />
-                  </div>
-                </>
+                <p>После кадрирования фотография будет обрезана</p>
               )}
             </NumberListItem>
+            {step === 2 && (
+              <div className={`w-[300px] mx-auto h-[40vh]`}>
+                <CropperImage
+                  setCroppedimage={(cropped) => {
+                    changeCropped(id, cropped);
+                    setCroppedimage(cropped);
+                  }}
+                  aspect={cropAspect}
+                  imageSrc={imageSrc}
+                />
+              </div>
+            )}
             <NumberListItem number={3}>
               <h3>Сохраните макет сектора</h3>
             </NumberListItem>

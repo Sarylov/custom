@@ -40,7 +40,7 @@ export const useBall = () => {
     return croppedValues;
   }
 
-  async function sendFiles(propfiles, email) {
+  async function sendFiles(propfiles, userInfo) {
     const filesValues = Object.values(files);
     const croppedValues = await getCroppedFiles();
 
@@ -60,11 +60,14 @@ export const useBall = () => {
       });
     }
 
-    formData.append('email', email);
+    formData.append('full_name', userInfo.FIO);
+    formData.append('email', userInfo.email);
+    formData.append('phone', userInfo.phone);
+    formData.append('address', userInfo.address);
 
     if (number || fullName) {
       const nameAndNumber = `Имя игрока (надпись на мяче): ${fullName}\nНомер игрока: ${number}`;
-      const nameAndNumberFile = getTxtFile(nameAndNumber, 'nameAndNumber');
+      const nameAndNumberFile = getTxtFile(nameAndNumber, 'nameAndNumber.txt');
 
       formData.append('2_3_5', nameAndNumberFile);
     }
@@ -78,7 +81,7 @@ export const useBall = () => {
   async function fetchPay(orderId) {
     const options = {
       cloud_dir_name: orderId,
-      amount: '4500.00',
+      amount: '5000.00',
       payment_method_type: 'bank_card',
       confirmation: {
         type: 'redirect',
