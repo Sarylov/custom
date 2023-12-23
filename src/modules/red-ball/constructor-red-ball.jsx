@@ -18,9 +18,6 @@ import { ConstucrotGridImage } from '../../components/constucrot-grid-image';
 import { GridHints } from './../../components/grid-hints';
 import { QuestionHint } from '../../components/question-hint';
 
-const WIDTH = '19%';
-const HEIGHT = '10.7%';
-
 export const ConstructorRedBall = () => {
   const {
     fullName,
@@ -102,20 +99,19 @@ export const ConstructorRedBall = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[16.65%] left-[15.4%] rotate-[12.3deg]"
-          width={WIDTH}
-          height={HEIGHT}
+          className="absolute top-[17.1%] left-[14.4%] -rotate-[25deg]"
+          width={'21.3%'}
+          height={'9.7%'}
           preview={1}
           id={9}
         />
-
         <SquareCell
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[16.65%] right-[15.4%] -rotate-[12.3deg]"
-          width={WIDTH}
-          height={HEIGHT}
+          className="absolute top-[17.1%] right-[14.4%] rotate-[12.3deg]"
+          width={'21.3%'}
+          height={'9.7%'}
           preview={2}
           id={13}
         />
@@ -123,9 +119,9 @@ export const ConstructorRedBall = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[34.67%] left-[15.5%] -rotate-[12.3deg]"
-          width={WIDTH}
-          height={HEIGHT}
+          className="absolute top-[35.12%] left-[14.4%] rotate-[25deg]"
+          width={'21.3%'}
+          height={'9.7%'}
           preview={3}
           id={12}
         />
@@ -133,9 +129,9 @@ export const ConstructorRedBall = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[34.67%] right-[15.5%] rotate-[12.3deg]"
-          width={WIDTH}
-          height={HEIGHT}
+          className="absolute top-[35.12%] right-[14.4%] -rotate-[25deg]"
+          width={'21.3%'}
+          height={'9.7%'}
           preview={4}
           id={16}
         />
@@ -144,9 +140,9 @@ export const ConstructorRedBall = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[65.15%] left-[15.4%] rotate-[192.3deg]"
-          width={WIDTH}
-          height={HEIGHT}
+          className="absolute top-[65.55%] left-[14.4%] -rotate-[205deg]"
+          width={'21.3%'}
+          height={'9.7%'}
           preview={5}
           id={25}
         />
@@ -155,9 +151,9 @@ export const ConstructorRedBall = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[65.15%] right-[15.4%] -rotate-[192.3deg]"
-          width={WIDTH}
-          height={HEIGHT}
+          className="absolute top-[65.55%] right-[14.4%] rotate-[205deg]"
+          width={'21.3%'}
+          height={'9.7%'}
           preview={6}
           id={29}
         />
@@ -165,9 +161,9 @@ export const ConstructorRedBall = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[83%] left-[15.5%] -rotate-[192.3deg]"
-          width={WIDTH}
-          height={HEIGHT}
+          className="absolute top-[83.5%] left-[14.4%] rotate-[205deg]"
+          width={'21.3%'}
+          height={'9.7%'}
           preview={7}
           id={28}
         />
@@ -175,9 +171,9 @@ export const ConstructorRedBall = () => {
           changeFile={changeFile}
           changeCropped={changeCropped}
           classNameWrapper=" grid-ball-cell w-full"
-          className="absolute top-[83%] right-[15.5%] rotate-[192.3deg]"
-          width={WIDTH}
-          height={HEIGHT}
+          className="absolute top-[83.5%] right-[14.4%] -rotate-[205deg]"
+          width={'21.3%'}
+          height={'9.7%'}
           preview={8}
           id={31}
         />
