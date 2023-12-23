@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  img {
+    @apply inline-block;
+  }
+}
+
 @font-face {
   font-family: 'MyFont';
   src: url('./assets/fonts/a-campus-bold.woff2') format('truetype');
@@ -54,6 +60,8 @@
   -webkit-mask-repeat: no-repeat;
   mask-position: center;
   -webkit-mask-position: center;
+  border-radius: 36px;
+  overflow: hidden;
 }
 
 .cell-1,
@@ -130,4 +138,3 @@
   -webkit-appearance: none;
   margin: 0;
 }
-

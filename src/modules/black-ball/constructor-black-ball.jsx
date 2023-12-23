@@ -54,17 +54,12 @@ export const ConstructorBlackBall = () => {
   const nameStyles = fullName
     ? (nameLen === 1 && {
         fontSize: getWidth(6, 8, 0.3),
-        top: '4.8%',
       }) ||
       (nameLen === 2 && {
         fontSize: getWidth(8, 7, 0.24),
-        top: `${maxLenPart < 8 ? 4 : 4 + maxLenPart * 0.08}%`,
-        lineHeight: '82%',
       }) ||
       (nameLen === 3 && {
         fontSize: getWidth(13, 4, 0.07),
-        top: `${maxLenPart < 13 ? 4.3 : 4.3 + maxLenPart * 0.03}%`,
-        lineHeight: '82%',
       })
     : {};
 
@@ -83,24 +78,8 @@ export const ConstructorBlackBall = () => {
     <div
       id="constructor"
       ref={refComponent}
-      className="container max-w-screen-sm mx-auto px-[1%] relative self-start cursor-pointer"
+      className="mx-auto w-[300px] sm:w-[500px] md:w-[300px] lg:w-[400px] xl:w-[500px]  relative self-start cursor-pointer"
     >
-      {/* Надписи на мяче */}
-      <>
-        <pre
-          className="font-bold w-[98%] text-center absolute z-30 text-white leading-9 uppercase font-custom "
-          style={{ ...nameStyles, pointerEvents: 'none' }}
-        >
-          {fullName && fullName.trim().split(' ').join('\n')}
-        </pre>
-        <p
-          className="font-bold w-[98%] text-center absolute z-30 text-white font-custom"
-          style={{ ...numberStyles, pointerEvents: 'none' }}
-        >
-          {number !== undefined && number}
-        </p>
-      </>
-
       <Modal
         title="Введите данные"
         name={'black-ball'}
@@ -109,6 +88,24 @@ export const ConstructorBlackBall = () => {
           <PrintForm state={{ fullName, setFullName, number, setNumber }} />
         }
       >
+        {/* Надписи на мяче */}
+        <div className="absolute left-1/2 -translate-x-[50%] z-[30] w-[38%] h-[7%] top-[3%] flex justify-center items-center cursor-pointer">
+          <pre
+            className=" font-bold text-white uppercase font-custom  leading-[.8em] text-[2em] text-center"
+            style={nameStyles}
+          >
+            {fullName && fullName.trim().split(' ').join('\n')}
+          </pre>
+        </div>
+        <div className="absolute left-1/2 -translate-x-[50%] z-[30] top-[12.5%] w-[17%] h-[8%] flex justify-center items-center cursor-pointer">
+          <p
+            className="font-bold text-center text-white font-custom inline-block"
+            style={numberStyles}
+          >
+            {number !== undefined && number}
+          </p>
+        </div>
+
         <ConstucrotGridImage
           largeImagePath={grid}
           minImagePath={gridMin}
@@ -117,6 +114,7 @@ export const ConstructorBlackBall = () => {
           }}
         />
       </Modal>
+
       {/* подсказки */}
       {(fullName?.trim() === '' || fullName?.trim() === 'Имя фамилия') && (
         <QuestionHint
