@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { fileToBase64 } from '../helpers/files';
 import imageCompression from 'browser-image-compression';
 import { CropperImage } from './cropper-image';
@@ -16,12 +16,31 @@ export const SquareCell = ({
   className,
   classNameWrapper,
   isTransparentBackground = false,
-  cropAspect = 1 / 1,
   modalTitle = 'Создайте макет сектора',
+  stepOneTitle = 'Загрузите фото',
+  isRounded = true,
 }) => {
   const [imageSrc, setImageSrc] = useState('');
-  const [croppedImage, setCroppedimage] = useState(null);
+  const [croppedImage, setCroppedImage] = useState(null);
   const [step, setStep] = useState(1);
+
+  const [widthInPixels, setWidthInPixels] = useState(0);
+  const [heightInPixels, setHeightInPixels] = useState(0);
+
+  const cell = useRef(null);
+
+  useEffect(() => {
+    if (cell) {
+      const element = cell.current;
+      const handleResize = () => {
+        setWidthInPixels(element.offsetWidth);
+        setHeightInPixels(element.offsetHeight);
+      };
+      const myObserver = new ResizeObserver(handleResize);
+      myObserver.observe(element);
+      return () => myObserver.unobserve(element);
+    }
+  }, []);
 
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
@@ -58,11 +77,11 @@ export const SquareCell = ({
         title={modalTitle}
         closeButton={
           step === 2 ? (
-            <button className="btn w-full btn-accent mt-2">
+            <button className="w-full mt-2 btn btn-accent">
               сохранить макет
             </button>
           ) : (
-            <button className="btn w-full mt-2">Закрыть редактор</button>
+            <button className="w-full mt-2 btn">Закрыть редактор</button>
           )
         }
         content={
@@ -78,9 +97,7 @@ export const SquareCell = ({
               }
             >
               <h3 className={`${step === 1 ? 'font-bold text-lg' : ''}`}>
-                {cropAspect === 1 / 2.5
-                  ? 'Загрузите фото в полный рост'
-                  : 'Загрузите фото'}
+                {stepOneTitle}
               </h3>
               <p>Выбирайте фотографии в хорошем качестве</p>
               <input
@@ -109,9 +126,9 @@ export const SquareCell = ({
                 <CropperImage
                   setCroppedimage={(cropped) => {
                     changeCropped(id, cropped);
-                    setCroppedimage(cropped);
+                    setCroppedImage(cropped);
                   }}
-                  aspect={cropAspect}
+                  aspect={widthInPixels / heightInPixels}
                   imageSrc={imageSrc}
                 />
               </div>
@@ -123,16 +140,20 @@ export const SquareCell = ({
         }
       >
         <div
-          className={`${className} cursor-pointer cell ${
+          className={`${className} cursor-pointer ${
             isTransparentBackground ? 'bg-transparent' : 'bg-gray-700'
-          }  flex justify-center items-center`}
+          }  
+          ${
+            isRounded ? 'overflow-hidden rounded-[35%]' : ''
+          } flex justify-center items-center`}
+          ref={cell}
           style={{ width, height }}
         >
           {croppedImage ? (
             <img
               src={croppedImage}
               alt=""
-              className="h-full w-full object-cover"
+              className="object-cover w-full h-full"
             />
           ) : (
             <>{preview}</>
