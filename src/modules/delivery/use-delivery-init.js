@@ -20,7 +20,6 @@ export const useDeliveryInit = () => {
       popup: true,
       defaultLocation: [44.25583, 46.30778],
       onChoose: (...data) => {
-        alert('Доставка выбрана');
         console.log(...data);
       },
     });

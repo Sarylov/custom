@@ -198,7 +198,7 @@ export const ConstructorRedBall = () => {
           </div>
           <div className="absolute left-1/2 -translate-x-[50%] z-[30] top-[12.5%] w-[17%] h-[8%] flex justify-center items-center cursor-pointer">
             <p
-              className="font-bold text-center text-white font-custom inline-block stroke"
+              className="inline-block font-bold text-center text-white font-custom stroke"
               style={numberStyles}
             >
               {number !== undefined && number}
@@ -210,13 +210,13 @@ export const ConstructorRedBall = () => {
       <ConstucrotGridImage
         largeImagePath={Background}
         minImagePath={BackgroundMin}
-        className="w-full grid-ball left-0 top-0 absolute z-30"
+        className="absolute top-0 left-0 z-30 w-full grid-ball"
       />
       {/* фото на несколько ячеек */}
       <SquareCell
         changeFile={changeFile}
         changeCropped={changeCropped}
-        classNameWrapper=" grid-ball-cell w-full"
+        classNameWrapper="grid-ball-cell w-full"
         className="absolute top-[20.4%] left-[50%] -translate-x-[50%] z-20  "
         width={'26.2%'}
         height={'30.5%'}
@@ -227,10 +227,11 @@ export const ConstructorRedBall = () => {
           <img
             src={playerImage}
             alt="player example"
-            className="w-full h-full object-cover"
+            className="object-cover w-full h-full"
           />
         }
-        cropAspect={1 / 2.5}
+        stepOneTitle="Загрузите фото в полный рост"
+        isRounded={false}
       />
       <SquareCell
         changeFile={changeFile}
@@ -246,10 +247,11 @@ export const ConstructorRedBall = () => {
           <img
             src={playerImage}
             alt="player example"
-            className="w-full h-full object-cover"
+            className="object-cover w-full h-full"
           />
         }
-        cropAspect={1 / 2.5}
+        stepOneTitle="Загрузите фото в полный рост"
+        isRounded={false}
       />
       <ConstucrotGridImage
         largeImagePath={RedBallGrid}
