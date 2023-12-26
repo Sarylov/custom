@@ -87,7 +87,7 @@ export const ContactForm = () => {
 
       if (res.status) {
         const orderId = res.data.cloud_dir_name;
-        const createPayRes = await fetchPay(orderId);
+        const createPayRes = await fetchPay(orderId, email);
         if (createPayRes.status === 200) {
           window.location.replace(createPayRes.data.confirmation_url);
         } else throw new Error();
@@ -104,9 +104,9 @@ export const ContactForm = () => {
   return (
     <form
       onSubmit={submit}
-      className="form flex flex-col justify-center items-center"
+      className="flex flex-col items-center justify-center form"
     >
-      <div className="form-control w-full max-w-xs">
+      <div className="w-full max-w-xs form-control">
         <label className="label">
           <span className="label-text">Фамилия имя отчество</span>
         </label>
@@ -115,7 +115,7 @@ export const ContactForm = () => {
           value={FIO}
           onChange={(e) => setFIO(e.target.value)}
           placeholder="Иванов Иван Иванович"
-          className="input input-bordered w-full max-w-xs"
+          className="w-full max-w-xs input input-bordered"
         />
 
         <label className="label">
@@ -144,12 +144,12 @@ export const ContactForm = () => {
           value={address}
           readOnly
           placeholder="Не выбран"
-          className="input input-bordered w-full max-w-xs no-arrows"
+          className="w-full max-w-xs input input-bordered no-arrows"
         />
 
         <button
           type="button"
-          className="btn btn-sm mt-1"
+          className="mt-1 btn btn-sm"
           onClick={chooseAddress}
         >
           выбрать {address ? 'другой' : ''} адрес доставки
@@ -169,9 +169,9 @@ export const ContactForm = () => {
           </div>
         </div>
 
-        {error && <p className="text-error text-center mb-2 ">{error}</p>}
+        {error && <p className="mb-2 text-center text-error ">{error}</p>}
         {isConstructorFullFilled && (
-          <p className="text-warning text-center mb-2 ">
+          <p className="mb-2 text-center text-warning ">
             Не все поля конструктора заполнены! Все равно перейти к оплате?
           </p>
         )}

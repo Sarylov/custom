@@ -78,7 +78,7 @@ export const useBall = () => {
     }).then((res) => res.json());
   }
 
-  async function fetchPay(orderId) {
+  async function fetchPay(orderId, email) {
     const options = {
       cloud_dir_name: orderId,
       amount: '5000.00',
@@ -87,6 +87,7 @@ export const useBall = () => {
         type: 'redirect',
         return_url: 'https://i.moymyach.ru/success',
       },
+      email,
     };
 
     return fetch(URL_API + '/payment/create', {
