@@ -14,11 +14,12 @@ export const useDeliveryInit = () => {
       root: 'cdek-map',
       apiKey: VITE_YANDEX_MAP_KEY,
       servicePath: VITE_URL_CDEK,
+      defaultCity: 'Москва',
       hideDeliveryOptions: {
         door: true,
       },
       popup: true,
-      defaultLocation: [44.25583, 46.30778],
+      defaultLocation: [37.6156, 55.7522],
       onChoose: (...data) => {
         console.log(...data);
       },

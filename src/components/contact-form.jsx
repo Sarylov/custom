@@ -152,20 +152,15 @@ export const ContactForm = () => {
           className="mt-1 btn btn-sm"
           onClick={chooseAddress}
         >
-          выбрать {address ? 'другой' : ''} адрес доставки
+          выбрать {address ? 'другой' : ''} пункт доставки
         </button>
 
         <span className="divider"></span>
 
-        <div className="text-sm">
-          <div className="flex justify-between">
-            <span>Стоймость доставки</span> <span>500 руб.</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Стоймость мяча</span> <span>4500 руб.</span>
-          </div>
-          <div className="flex justify-between mb-4">
-            <span>Общая стоймость</span> <span>5000 руб.</span>
+        <div className="text-sm mb-4 -mt-2">
+          <div className="text-center">
+            <p>Стоимость мяча - 5000 рублей</p>
+            <p className="text-success">Доставка - бесплатная</p>
           </div>
         </div>
 
